@@ -1,0 +1,37 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/ClassAnnouncement">Class Announcement</a></li>
+  <li class="current-page"><%= @announcement.title %></li>
+</ol>
+
+<div class="post-show-individual container-fluid">
+    <div class="row post-show-title">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-9">
+            <strong><span><%= @announcement.title %></span></strong>
+        </div>
+
+    </div>
+
+    <div class="row post-show-row">
+        <div class="col-xs-3 post-show-owner-section">
+              <img class="profilePicture" src="<%= @announcement.user.image_url %>"><br>
+            <span>Posted by: <%= link_to "#{@announcement.user.username}", user_information_path(@announcement.user) %></span><br>
+            <% if is_owner?(@announcement) %>
+            <div class="dropdown collapse navbar-collapse">
+              <a class="btn btn-default submit-btn dropdown" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More Action
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><%= link_to 'Edit', edit_announcement_path(@announcement) %></li>
+                <li><%= link_to 'Delete', destroy_announcement_path(@announcement), method: :delete %></li>
+              </ul>
+            </div>
+            <% end %>
+        </div>
+        <div class="col-xs-9 post-show-content">
+            <%= render html: @announcement.content.html_safe %>
+        </div>
+    </div>
+
+</div>

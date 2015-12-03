@@ -1,0 +1,78 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="current-page">Account Setting</li>
+</ol>
+
+<div class="container edit-user">
+  <%= form_for(@user, url: users_update_path(@user), method: :patch, :html => {class:"form-horizontal", :multipart => true}) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="col-md-offset-4">
+      <h2>
+        Oops! <%= pluralize(@user.errors.count, "error") %>!
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <fieldset>
+      <div class="form-group edit-user-header">
+          <span class="col-md-7 col-md-offset-5" id="accountSettingTag">
+            Account Setting
+          </span>
+      </div>
+
+    <div class="form-group">
+        <%= f.label :username, class: "col-md-4 control-label" %>
+        <div class="col-md-4">
+            <%= f.text_field :username , placeholder: "Username", class: "form-control"  %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :first_name, class: "col-md-4 control-label" %>
+        <div class="col-md-4">
+            <%= f.text_field :fname, placeholder: "First name", class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label  :last_name, class: "col-md-4 control-label" %>
+        <div class="col-md-4">
+            <%= f.text_field :lname , placeholder: "Last name", class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label  :password, class: "col-md-4 control-label" %>
+        <div class="col-md-4">
+          <%= f.password_field :password, placeholder: "Password", class: "form-control"%>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :password_confirmation, class: "col-md-4 control-label" %>
+        <div class="col-md-4">
+            <%= f.password_field :password_confirmation, placeholder: "Confirm password entered", class: "form-control"%>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :change_profile_picture, class: "control-label col-xs-4 formLabel" %>
+      <div class="col-xs-5">
+      <%= f.file_field :image, class: "btn"%>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-8 col-md-offset-4">
+            <%= f.submit "Update Account Information", class: "btn btn-default submit-btn"%>
+        </div>
+    </div>
+</fieldset>
+  <% end %>
+</div>

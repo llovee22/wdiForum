@@ -1,0 +1,41 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="current-page">Inbox</li>
+</ol>
+
+<%= will_paginate @conversations, renderer: BootstrapPagination::Rails, :class => "pagination pagination-sm", :previous_label => "《", :next_label => "》"%>
+
+<div class="container-fluid inbox-log">
+    <div class="row inbox-log-header">
+      <div class="col-xs-2 inbox-username"><strong>Username</strong></div>
+      <div class="col-xs-6"><strong>Last Message</strong></div>
+      <div class="col-xs-4 inbox-last-update"><strong>Last Send/Received On</strong></div>
+    </div>
+    <% if !@conversations.empty? %>
+    <% @conversations.reverse.each do |c| %>
+      <div class="row ">
+          <div class="col-xs-2">
+          <% if c.user.username != current_user.username %>
+              <a href="/conversations/<%= c.id %>"><%= c.user.username %></a>
+          <% else %>
+              <a href="/conversations/<%= c.id %>"><%= c.inbox.user.username %></a>
+          <% end %>
+        </div>
+          <div class="col-xs-6">
+            <span class="last-message-received"><%= c.messages.last.content %></span>
+          </div>
+          <div class="col-xs-4 inbox-last-update">
+            <%= c.messages.last.created_at.strftime("%B %d -  %H:%M")%>
+          </div>
+      </div>
+    <% end %>
+    <% else %>
+    <div class="row">
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4">
+      <em><span class="inbox-empty">The inbox is currently empty</span></em>
+    </div>
+
+    </div>
+    <% end %>
+</div>

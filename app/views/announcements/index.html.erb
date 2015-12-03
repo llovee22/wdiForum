@@ -1,0 +1,70 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="current-page">Class Announcement</li>
+</ol>
+
+<div class="index-container">
+  <div class="row index-heading">
+    <div class="col-xs-5">
+      Topic
+    </div>
+    <div class="col-xs-5"></div>
+    <div class="col-xs-2 index-comment-view">
+      Views
+    </div>
+  </div>
+
+  <div class="index-listing">
+    <% if !@announcements.empty? %>
+      <% @announcements.order('created_at DESC').each do |a| %>
+        <div class="row">
+          <div class="col-xs-5">
+            <div>
+              <a class="post-index-title" href="/announcements/<%= a.id %>">
+                <%= a.title %>
+              </a>
+            </div>
+            <div>
+              <a class="post-index-owner" href="/users/<%=a.user.id%>">
+                <%= a.user.username %>
+              </a>,
+              <span class="post-index-date">
+                <%= a.created_at.strftime("%b %d, %Y") %>
+              </span>
+            </div>
+          </div>
+          <div class="col-xs-5"></div>
+          <div class="col-xs-2 index-comment-view">
+            <div>
+              <span>Views:</span> <%= a.view %>
+            </div>
+            <div>
+              <span>N/A</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <em><span class="forum-empty">The forum is currently empty</span></em>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row index-bottom-footer">
+  <div class="col-xs-2">
+    <%= will_paginate @announcements, renderer: BootstrapPagination::Rails, :class => "pagination-sm", :previous_label => "《", :next_label => "》"%>
+  </div>
+  <div class="col-xs-9"></div>
+  <div class="col-xs-1">
+    <% if logged_in? %>
+      <% if is_instructor? %>
+        <a href="/announcements/new" class="btn btn-default new-post-btn">New Post</a>
+      <% end %>
+    <% end %>
+  </div>
+</div>

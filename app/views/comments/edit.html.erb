@@ -1,0 +1,40 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/GeneralDiscussion">General Discussion</a></li>
+  <li><a href="/articles/<%= @comment.article.id %>"><%= @comment.article.title %></a></li>
+  <li class="current-page">Edit Comment</li>
+</ol>
+
+<div class="container edit-reply">
+<%= form_for(@comment, url: update_comment_path(@comment), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
+<fieldset>
+  <div class="form-group edit-reply-header">
+      <span class="col-md-7 col-md-offset-5">
+          <em>Edit Comment</em>
+      </span>
+  </div>
+  <div class="form-group">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-9">
+
+          <%= f.text_area :content, class: "form-control wysihtml5"%>
+      </div>
+      <div class="col-xs-1">
+      </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-7">
+        <%= f.submit 'Post', class: "btn btn-default submit-btn"%></div>
+  </div>
+
+
+
+</fieldset>
+<% end %>
+</div>
+
+<%= javascript_tag do %>
+    textOption();
+<% end %>

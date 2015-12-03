@@ -1,0 +1,59 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/conversations/index">Inbox</a></li>
+  <li class="current-page">Personal Message</li>
+</ol>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8 message-heading">
+        <span>Personal Message</span>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8" id="xs-padding-adjust">
+            <div id="forumChatroom">
+                <% if current_user %>
+                    <% @messages.each do |m| %>
+                    <div class="row current-message">
+                      <div class="col-xs-10">
+                      <a href="/users/<%= m.user.id %>"><%= m.user.username %></a>:
+                      <span><%= m.content %></span>
+
+                    </div>
+                    <div class="col-xs-2 message-action">
+                      <% if m.user == current_user %>
+                      <span>
+                        <%= link_to 'Delete', destroy_message_path(m), method: :delete %>
+                        <%= link_to 'Edit', edit_message_path(m) %>
+                      </span>
+                      <% end %>
+                    </div>
+                    </div>
+                  <% end %>
+              <% end %>
+        </div>
+
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+    <div class="row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-10">
+          <%= render 'messages/form' %>
+        </div>
+        <div class="col-xs-1"></div>
+        </div>
+</div>
+
+
+
+
+
+<script>
+  $('#privateConversation').scrollTop($('#privateConversation')[0].scrollHeight);
+</script>

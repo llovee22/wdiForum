@@ -1,0 +1,15 @@
+<div class="message-input-box">
+<%= form_for([@conversation, @conversation.messages.build], :html => {class:"form-horizontal"}) do |f| %>
+<fieldset>
+<div class="form-group ">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-7">
+        <%= f.text_field :content, placeholder: "Enter your message here",class: "form-control"%>
+    </div>
+    <div class="col-xs-3">
+        <%= f.submit 'Send', class: "btn btn-default send-btn"%>
+    </div>
+</div>
+</fieldset>
+<% end %>
+</div>

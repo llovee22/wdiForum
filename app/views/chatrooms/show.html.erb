@@ -1,0 +1,54 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li>Forum Chatroom</li>
+</ol>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8 message-heading">
+        <span>Forum Chatroom</span>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8" id="xs-padding-adjust">
+            <div id="forumChatroom">
+              <% if current_user %>
+                  <% @chats.each do |c| %>
+                  <div class="row current-message">
+                    <div class="col-xs-10">
+                    <a href="/users/<%= c.user.id %>"><%= c.user.username %></a>:
+                    <span><%= c.content %></span>
+                  </div>
+                  <div class="col-xs-2 message-action">
+                    <% if c.user == current_user %>
+                    <span>
+                      <%= link_to 'Delete', destroy_chat_path(c), method: :delete %>
+                      <%= link_to 'Edit', edit_chat_path(c) %>
+                    </span>
+                    <% end %>
+                  </div>
+                  </div>
+                <% end %>
+            <% end %>
+        </div>
+
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+    <div class="row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-10">
+          <%= render 'chats/form' %>
+        </div>
+        <div class="col-xs-1"></div>
+        </div>
+</div>
+
+
+<script>
+  $('#forumChatroom').scrollTop($('#forumChatroom')[0].scrollHeight);
+</script>

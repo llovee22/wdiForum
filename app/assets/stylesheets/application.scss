@@ -1,0 +1,453 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
+
+
+#header {
+  background-color: #FF7500;
+  margin-bottom: 0px;
+  display: block;
+}
+
+#header a {
+  color: white;
+  font-weight: bolder;
+}
+#homeLogo{
+  height: 50px;
+}
+
+#forum-mainpage-header {
+  height: 30px;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Pm8iSSpLPACDIKbuFvim2ZfCAIO2bjaQq5t-Fbiic97dMgrC5w');
+  opacity: 0.75;
+}
+
+#container-border {
+  border: 1px solid #999;
+}
+
+h4 {
+  margin: 0px;
+  padding-top: 5px;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+.subforum-list a {
+  color: black;
+  font-weight: bolder;
+}
+
+.subforum-list {
+  background-color: #F8F8F8;
+  border-bottom: 1px solid white;
+  padding: 2px;
+}
+
+.subforum-list:hover {
+  background-color: #FFFAF6;
+}
+
+.subforum-logo {
+  width: 100%;
+  border: 5px solid #F7931D;
+  border-radius: 10px;
+}
+
+body {
+  background-color: #F8F8F8;
+  margin-bottom: 50px;
+}
+
+
+.jumbotron {
+  background: rgba(255,255,255,0);
+  // border-radius: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 20px 20px 0px 20px;
+  // background-image: url('http://stage48.net/forum/styles/default/xenforo/new/bg.jpg')
+}
+
+#registerTag, #accountSettingTag {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.profilePicture {
+  border-radius: 30px;
+  height: 200px;
+  max-width: 80%;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  // background-color: #F8F8F8;
+  // border: 1px solid transparent;
+  // border-color: #e7e7e7;
+  // border-color: #E7E3D7;
+  color: gray;
+  // background-color: black;
+  // background-color: #EEF5FC;
+  background-color: white;
+  // background: linear-gradient(#FFF8DF, white);
+  font-weight: bolder;
+  border-radius: 0px;
+
+
+}
+
+.listing {
+  // border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #F8F8F8;
+  border: 1px solid transparent;
+  border-color: #e7e7e7;
+}
+
+
+.listing .row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.replySection {
+  margin-top: 15px;
+}
+
+.postReply {
+  margin-top: 15px;
+}
+
+
+
+
+
+
+
+.message-input-box {
+  margin-top: 15px;
+}
+
+
+.index-container {
+  // border-radius: 5px;
+  padding-bottom: 15px;
+}
+
+.index-user-picture {
+  height: 50px;
+  text-align: center;
+}
+
+.index-heading {
+  // border-bottom: 3px solid transparent;
+  // background-color: black;
+  background: linear-gradient(#2D569B, #3D7AB7);
+  // background-color: #376CAC;
+  color: white;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 8px 0px 8px 0px;
+  // border-radius: 5px 5px 0px 0px;
+  font-weight: bolder;
+}
+
+.index-listing {
+  // background-color: white;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 5px 10px 5px 10px;
+  // background-color: #F8F8F8;
+  // background: linear-gradient(#F5FAFE, white);
+  background-color: #F5FAFE;
+  border: 1px solid transparent;
+  border-color: #e7e7e7;
+  // border-radius: 0px 0px 5px 5px;
+}
+
+.index-listing .row {
+  margin-top: 5px;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
+  border-color: #CAD9EA;
+}
+
+.index-listing .row:hover, .inbox-log .row:hover {
+  background-color: #EAF4FD;
+}
+
+.breadcrumb a {
+  color: #086B9C;
+}
+
+.current-page{
+  font-style: italic;
+}
+
+.pagination-sm li:second-child span {
+    background-color:black;
+}
+
+.index-last-comment, .index-comment-view {
+  text-align: right;
+}
+
+.previous_label {
+  background-color: gray;
+}
+
+
+.post-index-title {
+  font-weight: bolder;
+  color: black;
+}
+
+.post-index-owner {
+  font-weight: bold;
+  color: #5A5A5A;
+}
+
+.post-index-date {
+  color: #737373;
+}
+
+
+.last-comment-date {
+  font-weight: bolder;
+  color: black;
+}
+
+.last-comment-name {
+  color: #5A5A5A;
+}
+
+.last-comment-name a{
+  color: #737373;
+}
+
+.bold-text {
+  font-weight: bolder;
+}
+
+.index-comment-view span{
+  font-weight: bolder;
+}
+
+.post-show-title {
+  background: linear-gradient(#2B5197, #3E7BB8);
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: 1px solid #9DB3C5;
+}
+
+.post-show-individual {
+  border: 1px solid #9DB3C5;
+}
+
+.post-show-owner-section {
+  text-align: center;
+  background-color: #E8F3FD;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.user-show-info-section {
+  text-align: center;
+  background-color: #E8F3FD;
+  padding: 10px;
+
+}
+
+.show-reply {
+  margin-top: 5px;
+}
+
+.message-heading {
+  background: linear-gradient(#3364A6,#CAD9EA);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bolder;
+}
+
+#forumChatroom, #privateConversation {
+  overflow: auto;
+  height: 400px;
+  overflow-x: hidden;
+  border: 1px double #CAD9EA;
+  padding: 10px 0px 10px 20px;
+}
+
+#xs-padding-adjust {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.send-btn, .message-btn, .new-post-btn {
+  background: linear-gradient(#FFF8DF, white);
+}
+
+.inbox-log{
+  border: 1px solid transparent;
+  border-color: #CAD9EA;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.inbox-log .row {
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
+  border-color: #CAD9EA;
+
+}
+
+.inbox-log-header, .show-user-header, .new-user-header, .login-header {
+  background: linear-gradient(#2D569B, #3D7AB7);
+  color: white;
+  font-weight: bolder;
+  padding: 10px 0px 12px 0px;
+  border-bottom: 1px solid #CAD9EA;
+}
+
+
+.edit-reply-header, .edit-post-header, .edit-user-header, .new-post-header, .new-user-header {
+  border-radius: 5px 5px 0px 0px;
+  border-color: #CAD9EA;
+  background: linear-gradient(#2D569B, #3D7AB7);
+  color: white;
+  font-weight: bolder;
+  border-bottom: 1px solid #CAD9EA;
+  padding: 10px 0px 12px 0px;
+}
+
+
+
+.inbox-log a {
+  font-weight: bolder;
+  color: black;
+}
+
+.last-message-received {
+  color: #009900;
+}
+
+.inbox-last-update, .inbox-last-message {
+  text-align: right;
+}
+
+.show-user {
+  border: 1px solid transparent;
+  border-color: #CAD9EA;
+}
+
+.submit-btn {
+  border-radius: 5px;
+  background: linear-gradient(#FFF8DF, white);
+}
+
+ .edit-user, .new-user, .login, .new-post, .edit-post, .edit-reply {
+  border: 1px double transparent;
+  border-color: #CAD9EA;
+  border-radius: 5px;
+  background: linear-gradient(#F3F9FE, white)
+}
+
+.new-reply {
+  border: 1px double transparent;
+  border-color: #CAD9EA;
+  background: linear-gradient(#F3F9FE, white);
+  margin-top: 10px;
+}
+
+.new-reply-header {
+  background: linear-gradient(#2D569B, #3D7AB7);
+  color: white;
+  font-weight: bolder;
+  padding: 2px 0px 2px 0px;
+  border-bottom: 1px solid #CAD9EA;
+}
+
+
+
+.pagination {
+  margin: 0px;
+}
+
+
+.post-show-content {
+  padding: 5px 5px 0px 15px;
+  height: 250px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.show-post-image {
+  margin-top: 10px;
+}
+
+.forum-empty, .inbox-empty {
+  text-align: center
+}
+
+.user-history {
+  overflow: auto;
+}
+
+
+.like-btn {
+  background: linear-gradient(#FFF8DF, white);
+}
+
+.post-show-content img {
+  height: 150px;
+}
+
+.like-count {
+  font-style: italic;
+  color: green;
+}
+
+.message-action {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.current-message:hover {
+  background-color: #F0F7FE;
+}
+
+
+
+// .previous_page { background-color: #7777ff; color:white }
+  // .previous_page.disabled { background: white; color: #777 }
+  // .current { background: yellow }
+  // .next_page { background: #7777ff; color: white }
+  // .next_page.disabled { background: white; color: #777 }

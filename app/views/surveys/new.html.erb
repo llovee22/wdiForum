@@ -1,0 +1,57 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/FeedbackInbox">Feedback Inbox</a></li>
+  <li class="current-page">New Post</li>
+</ol>
+<div class="container new-post">
+<%= form_for @survey, :html => {class:"form-horizontal", :multipart => true} do |f| %>
+
+<% if @survey.errors.any? %>
+  <div id="error_explanation" class="col-md-offset-4">
+    <h2>
+      Oops! <%= pluralize(@survey.errors.count, "error") %>!
+    </h2>
+    <ul>
+      <% @survey.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<fieldset>
+  <div class="form-group new-post-header">
+      <span class="col-md-7 col-md-offset-5" id="registerTag">
+          New Post
+      </span>
+  </div>
+
+<div class="form-group">
+  <%= f.label :topic, class: "control-label col-xs-3 formLabel" %>
+  <div class="col-xs-6">
+      <%= f.text_field :title, placeholder: "Minimum length 5 | Maximum length 100", class: "form-control "%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :body, class: "control-label col-xs-3 formLabel"%>
+  <div class="col-xs-6">
+  <%= f.text_area :question, placeholder:"Minimum length 10", class: "form-control wysihtml5"%>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="col-xs-5 col-xs-offset-3">
+  <%= f.submit 'Post', class: "btn btn-default submit-btn"%>
+  <a href="/FeedbackInbox" class="btn btn-default submit-btn">Cancel</a>
+</div>
+
+</div>
+</fieldset>
+<% end %>
+</div>
+
+<%= javascript_tag do %>
+    textOption();
+<% end %>
