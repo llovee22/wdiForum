@@ -2,7 +2,7 @@
   <li class="current-page">wdiForum-Home</li>
 </ol>
 
-<div class="container" id="container-border">
+<div class="container container-border">
   <div class="row" id="forum-mainpage-header">
     <h4> &nbsp;&nbsp; :: WDI | Web Development Immersive ::</h4>
   </div>
@@ -18,6 +18,10 @@
       <p>
         Come discuss about anything questions you have relating to homeworks, projects, lectures and other useful resource.
       </p>
+      <p>
+        Dicussions: <%= @articles.length %>
+        Messages: <%= @comments.length %>
+      </p>
     </div>
   </div>
 
@@ -32,6 +36,10 @@
       <p>
         Share your arts, projects or any crazy ideas you have in mind for absolutely  private feedbacks
       </p>
+      <p>
+        Discussions: <%= @surveys.length %>
+        Messages: <%= @answers.length %>
+      </p>
     </div>
   </div>
 
@@ -45,6 +53,9 @@
       </h3>
       <p>
         Come see the class announcements from instructors for latest workshops and schedule changes
+      </p>
+      <p>
+        Announcements: <%= @announcements.length %>
       </p>
     </div>
   </div>

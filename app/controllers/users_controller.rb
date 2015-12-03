@@ -4,6 +4,11 @@ class UsersController < ApplicationController
       @chatroom = Chatroom.new
       @chatroom.save
     end
+    @articles = Article.all
+    @announcements = Announcement.all
+    @surveys = Survey.all
+    @comments = Comment.all
+    @answers = Answer.all
   end
 
   def show
