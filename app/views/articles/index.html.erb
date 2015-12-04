@@ -3,22 +3,36 @@
   <li class="current-page">General Discussion</li>
 </ol>
 
+<div class="container container-border subforum-rules">
+  <div class="rules-header row">
+    <h4>Rules and Guidelines</h4>
+  </div>
+  <div class="row">
+    <h5>The following rules and guidelines only apply to this subforum</h5>
+    <ul>
+      <li>Post titles should at least be 5 characters long but no longer than 100 characters</li>
+      <li>Post bodies must be at least 10 characters long</li>
+      <li>Replies must at least be 3 characters long</li>
+      <li>Duplicate posts (discussions or messages) are not allowed; duplicate posts will be removed by admin</li>
+    </ul>
+  </div>
+</div>
+
 <div class="container container-border">
   <div class="row subforum-header">
     <h4> &nbsp;&nbsp; :: General Dicussion :: </h4>
   </div>
 
-  <div class="row subforum-tag orange-bottom">
+  <div class="row subforum-tag orange-bottom white-top">
     <div class="col-xs-5"><h4>Topic</h4></div>
     <div class="col-xs-3"></div>
     <div class="col-xs-2 index-comment-view"><h4>Comments</h4></div>
     <div class="col-xs-2 index-last-comment"><h4>Last Comment</h4></div>
   </div>
 
-  <div class="index-listing">
     <% if !@articles.empty? %>
       <% @articles.order('created_at DESC').each do |a| %>
-        <div class="row">
+        <div class="row orange-bottom discussion-list">
           <div class="col-xs-5">
             <div>
               <a class="post-index-title" href="/articles/<%= a.id %>"><%= a.title %></a>
@@ -70,10 +84,11 @@
 
         </div>
         <% end %>
-      </div>
+
 </div>
 
-<div class="row index-bottom-footer">
+<div class="container subforum-footer">
+<div class="row">
     <div class="col-xs-2">
         <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :class => "pagination-sm", :previous_label => "《", :next_label => "》"%>
     </div>
@@ -84,4 +99,5 @@
             <a href="/articles/new" class="btn btn-default new-post-btn">New Post</a>
         <% end %>
     </div>
+</div>
 </div>

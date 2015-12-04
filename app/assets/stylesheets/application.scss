@@ -65,12 +65,16 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2px;
 }
 
+.white-top {
+  border-top: 2px solid white;
+
+}
 .orange-bottom {
   border-bottom: 1px solid #F9D7AC;
   padding: 2px;
 }
 
-.subforum-list:hover {
+.subforum-list:hover, .discussion-list:hover {
   background-color: #FFFAF6;
 }
 
@@ -88,6 +92,21 @@ h1, h2, h3, h4, h5, h6 {
 .subforum-tag h4 {
   color: #666;
 }
+
+.rules-header {
+  background: linear-gradient(#FFB343, #FFF8EC);
+}
+
+.rules-header h4{
+  color: black;
+  font-weight: bolder;
+}
+
+.subforum-rules {
+  margin-bottom: 20px;
+}
+
+
 
 body {
   background-color: #F8F8F8;

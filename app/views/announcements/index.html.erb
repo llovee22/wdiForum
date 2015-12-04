@@ -3,12 +3,27 @@
   <li class="current-page">Class Announcement</li>
 </ol>
 
+<div class="container container-border subforum-rules">
+  <div class="rules-header row">
+    <h4>Rules and Guidelines</h4>
+  </div>
+  <div class="row">
+    <h5>The following rules and guidelines only apply to this subforum</h5>
+    <ul>
+      <li>Only insturctors are allowed to create a discussion</li>
+      <li>The reply function is disabled in this subforum</li>
+      <li>Announcement titles should be at least 5 characters long but no longer than 100 characters</li>
+      <li>Announcement bodies must be at least 10 characters long</li>
+    </ul>
+  </div>
+</div>
+
 <div class="container container-border">
   <div class="row subforum-header">
     <h4> &nbsp;&nbsp; :: Class Announcement :: </h4>
   </div>
 
-  <div class="row subforum-tag orange-bottom">
+  <div class="row subforum-tag orange-bottom white-top">
     <div class="col-xs-5">
       <h4>Topic</h4>
     </div>
@@ -17,11 +32,9 @@
       <h4>Views</h4>
     </div>
   </div>
-
-  <div class="index-listing">
     <% if !@announcements.empty? %>
       <% @announcements.order('created_at DESC').each do |a| %>
-        <div class="row">
+        <div class="row orange-bottom discussion-list">
           <div class="col-xs-5">
             <div>
               <a class="post-index-title" href="/announcements/<%= a.id %>">
@@ -56,10 +69,10 @@
         </div>
       </div>
     <% end %>
-  </div>
 </div>
 
-<div class="row index-bottom-footer">
+<div class="container subforum-footer">
+<div class="row">
   <div class="col-xs-2">
     <%= will_paginate @announcements, renderer: BootstrapPagination::Rails, :class => "pagination-sm", :previous_label => "《", :next_label => "》"%>
   </div>
@@ -71,4 +84,5 @@
       <% end %>
     <% end %>
   </div>
+</div>
 </div>

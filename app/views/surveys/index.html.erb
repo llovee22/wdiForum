@@ -2,23 +2,37 @@
   <li><a href="/">Home</a></li>
   <li class="current-page">Feedback Inbox</li>
 </ol>
-
+<div class="container container-border subforum-rules">
+  <div class="rules-header row">
+    <h4>Rules and Guidelines</h4>
+  </div>
+  <div class="row">
+    <h5>The following rules and guidelines only apply to this subforum</h5>
+    <ul>
+      <li>Post titles should be at least 5 characters long but no longer than 100 characters</li>
+      <li>Post bodies must at least be 3 characters long</li>
+      <li>Replies must at least be 2 characters long</li>
+      <li>Users are restricted to one reply per post; users may edit or delete their reply at anytime</li>
+      <li>Only post owners will have access to all the replies under a post; other users will only have access to their own reply</li>
+      <li>Duplicate posts (discussions or messages) are not allowed; duplicate posts will be removed by admin</li>
+    </ul>
+  </div>
+</div>
 <div class="container container-border">
     <div class="row subforum-header">
       <h4> &nbsp;&nbsp; :: Feedback Inbox :: </h4>
     </div>
 
-    <div class="row subforum-tag orange-bottom">
+    <div class="row subforum-tag orange-bottom white-top">
       <div class="col-xs-5"><h4>Topic</h4></div>
       <div class="col-xs-3"></div>
       <div class="col-xs-2 index-comment-view"><h4>Comments/Views</h4></div>
       <div class="col-xs-2 index-last-comment"><h4>Last Comment</h4></div>
     </div>
 
-    <div class="index-listing">
         <% if !@surveys.empty? %>
         <% @surveys.order('created_at DESC').each do |s| %>
-          <div class="row">
+          <div class="row orange-bottom discussion-list">
               <div class="col-xs-5">
               <div>
                 <a class="post-index-title" href="/surveys/<%= s.id %>"><%= s.title %></a>
@@ -52,7 +66,6 @@
             </div>
         </div>
         <% end %>
-      </div>
       <% else %>
       <div class="row">
         <div class="col-xs-4"></div>
@@ -64,7 +77,8 @@
       <% end %>
 </div>
 
-<div class="row index-bottom-footer">
+<div class="container subforum-footer">
+<div class="row">
     <div class="col-xs-2">
         <%= will_paginate @surveys, renderer: BootstrapPagination::Rails, :class => "pagination-sm", :previous_label => "《", :next_label => "》"%>
     </div>
@@ -75,4 +89,5 @@
             <a href="/surveys/new" class="btn btn-default new-post-btn">New Post</a>
         <% end %>
     </div>
+</div>
 </div>
