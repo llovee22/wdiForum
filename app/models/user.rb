@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
 		def default_values
 			self.chatroom_id ||= 1
 			self.user_type ||= "Student"
+			if self.user_type == "Student"
+				self.image = "http://i902.photobucket.com/albums/ac222/llovee_91/student2.jpeg"
+			else
+				self.image = "http://i902.photobucket.com/albums/ac222/llovee_91/teacher2.jpeg"
+			end
 		end
 
 		def is_instructor?

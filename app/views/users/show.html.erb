@@ -11,7 +11,7 @@
 </div>
 <div class="row show-user">
   <div class="col-md-3 user-show-info-section">
-
+    <%= image_tag @user.image %>
     <span class="profileInfo"> <strong>Username:</strong> <%= link_to "#{@user.username}", user_information_path(@user) %><br> </span>
     <span class="profileInfo">  <strong>Name:</strong> <%= @user.fname %> <%= @user.lname %></span><br>
     <span class="profileInfo"> <strong>Type:</strong> <%= @user.user_type %><br><br></span>

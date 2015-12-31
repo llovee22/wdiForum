@@ -14,7 +14,7 @@
 
     <div class="row post-show-row">
         <div class="col-xs-3 post-show-owner-section">
-
+          <%= image_tag @article.user.image %><br>
             <span>Posted by: <%= link_to "#{@article.user.username}", user_information_path(@article.user) %></span><br>
             <% if @article.user == current_user %>
             <div class="dropdown collapse navbar-collapse">
