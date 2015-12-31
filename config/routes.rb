@@ -74,7 +74,7 @@ Rails.application.routes.draw do
   #users route for signing up and editing account information
   get 'Homepage' => 'users#index', as: :homepage
   get 'users/new' => 'users#new', as: :signup
-  get 'users/:id/edit' => 'users#edit', as: :edit_user
+  get 'users/edit' => 'users#edit', as: :edit_user
   post 'users' => 'users#create'
   get 'users/:id' => 'users#show', as: :user_information
   patch 'users/id' => 'users#update', as: :users_update

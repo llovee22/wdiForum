@@ -5,26 +5,24 @@
 
 <div class="container gray-background container-border">
 <%= form_for @user, :html => {class:"form-horizontal", :multipart => true} do |f| %>
-<% if @user.errors.any? %>
-  <div id="error_explanation" class="col-md-offset-4">
-    <h2>
-      Oops! <%= pluralize(@user.errors.count, "error") %>!
-    </h2>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
   <fieldset>
       <div class="form-group form-header no-vert-margin">
           <span class="col-md-7 col-md-offset-5">
             Register
           </span>
       </div>
-
+      <% if @user.errors.any? %>
+        <div class="col-md-offset-4">
+          <h5>
+            Please fix the following <%= pluralize(@user.errors.count, "field") %> before proceeding
+          </h5>
+          <ol>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ol>
+        </div>
+      <% end %>
 <div class="form-group-margin">
     <div class="form-group">
         <%= f.label :username, class: "col-md-4 control-label" %>
