@@ -34,7 +34,7 @@
   height: 50px;
 }
 
-#forum-mainpage-header, .subforum-header, #inbox-header {
+#forum-mainpage-header, .subforum-header, #inbox-header, .profile-header {
   height: 30px;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Pm8iSSpLPACDIKbuFvim2ZfCAIO2bjaQq5t-Fbiic97dMgrC5w');
   opacity: 0.7;
@@ -48,8 +48,17 @@
   border: 1px solid #999;
 }
 
+.feature-subheader {
+  background-color: #FFF3E7;
+}
 
+.feature-subheader h4 {
+  color: #666666;
+}
 
+.align-right {
+    text-align: right;
+}
 
 h4 {
   margin: 0px;
@@ -394,10 +403,7 @@ body {
 
 
 
-#xs-padding-adjust {
-  padding-left: 0px;
-  padding-right: 0px;
-}
+
 
 .send-btn, .message-btn, .new-post-btn {
   background: linear-gradient(#FFF8DF, white);
@@ -529,7 +535,14 @@ body {
 }
 
 
-
+#xs-padding-adjust {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.xs-padding-adjust {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 // .previous_page { background-color: #7777ff; color:white }
   // .previous_page.disabled { background: white; color: #777 }
   // .current { background: yellow }
