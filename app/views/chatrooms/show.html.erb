@@ -6,8 +6,8 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-xs-2"></div>
-      <div class="col-xs-8 message-heading">
-        <span>Forum Chatroom</span>
+      <div class="col-xs-8 chat-header">
+        <h4> &nbsp; :: Forum Chatroom ::</h4>
       </div>
       <div class="col-xs-2"></div>
     </div>
@@ -15,22 +15,19 @@
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-8" id="xs-padding-adjust">
-            <div id="forumChatroom">
+            <div class="chat-container gray-background">
               <% if current_user %>
                   <% @chats.each do |c| %>
-                  <div class="row current-message">
+                  <div class="row message">
                     <div class="col-xs-10">
-                    <a href="/users/<%= c.user.id %>"><%= c.user.username %></a>:
+
+                    <a href="/users/<%= c.user.id %>"><%= c.user.username %></a><span class="message-date">
+                      <%= c.created_at.strftime("%b %d, %Y %l:%M %p") %></span>
+
+                    :
                     <span><%= c.content %></span>
                   </div>
-                  <div class="col-xs-2 message-action">
-                    <% if c.user == current_user %>
-                    <span>
-                      <%= link_to 'Delete', destroy_chat_path(c), method: :delete %>
-                      <%= link_to 'Edit', edit_chat_path(c) %>
-                    </span>
-                    <% end %>
-                  </div>
+
                   </div>
                 <% end %>
             <% end %>
@@ -50,5 +47,5 @@
 
 
 <script>
-  $('#forumChatroom').scrollTop($('#forumChatroom')[0].scrollHeight);
+  $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 </script>

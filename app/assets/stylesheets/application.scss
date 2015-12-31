@@ -40,9 +40,16 @@
   opacity: 0.7;
 }
 
+.chat-header h4 {
+  color: black;
+}
+
 .container-border {
   border: 1px solid #999;
 }
+
+
+
 
 h4 {
   margin: 0px;
@@ -59,7 +66,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bolder;
 }
 
-.subforum-list {
+.form-header, .chat-header {
+  //border-radius: 5px 5px 0px 0px;
+  border-color: #CAD9EA;
+  color: black;
+  font-weight: bolder;
+  // border-bottom: 1px solid #CAD9EA;
+  padding: 5px 0px 5px 0px;
+  height: auto;
+  background: linear-gradient(#FFB343, #FFF8EC);
+}
+
+.subforum-list, .chat-container .row {
   background-color: #F8F8F8;
   border-bottom: 1px solid white;
   padding: 2px;
@@ -74,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2px;
 }
 
-.subforum-list:hover, .discussion-list:hover {
+.subforum-list:hover, .discussion-list:hover, .message:hover {
   background-color: #FFFAF6;
 }
 
@@ -110,7 +128,15 @@ h1, h2, h3, h4, h5, h6 {
  background-color: #F8F8F8;
 }
 
-
+// .no-bottom-border {
+//   border: 1px solid #999;
+//   border-bottom: 0px;
+// }
+//
+// .no-top-border {
+//   border: 1px solid #999;
+//   border-top: 0px;
+// }
 
 
 
@@ -185,16 +211,6 @@ body {
 // }
 
 
-.form-header {
-  //border-radius: 5px 5px 0px 0px;
-  border-color: #CAD9EA;
-  color: black;
-  font-weight: bolder;
-  // border-bottom: 1px solid #CAD9EA;
-  padding: 5px 0px 5px 0px;
-  height: auto;
-  background: linear-gradient(#FFB343, #FFF8EC);
-}
 
 .form-header span {
   font-size: 20px;
@@ -214,6 +230,13 @@ body {
   margin: 0px;
   margin-left: -15px;
   margin-right: -15px;
+}
+
+.chat-container {
+  overflow: auto;
+  height: 400px;
+  overflow-x: hidden;
+  padding: 10px 10px 10px 10px;
 }
 
 
@@ -305,7 +328,7 @@ body {
   color: #5A5A5A;
 }
 
-.post-index-date {
+.post-index-date, .message-date {
   color: #737373;
 }
 
@@ -369,13 +392,7 @@ body {
   font-weight: bolder;
 }
 
-#forumChatroom, #privateConversation {
-  overflow: auto;
-  height: 400px;
-  overflow-x: hidden;
-  border: 1px double #CAD9EA;
-  padding: 10px 0px 10px 20px;
-}
+
 
 #xs-padding-adjust {
   padding-left: 0px;
@@ -509,10 +526,6 @@ body {
 .message-action {
   text-align: right;
   padding-right: 30px;
-}
-
-.current-message:hover {
-  background-color: #F0F7FE;
 }
 
 
