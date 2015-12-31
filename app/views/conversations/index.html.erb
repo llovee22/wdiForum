@@ -5,15 +5,15 @@
 
 <%= will_paginate @conversations, renderer: BootstrapPagination::Rails, :class => "pagination pagination-sm", :previous_label => "《", :next_label => "》"%>
 
-<div class="container-fluid inbox-log">
-    <div class="row inbox-log-header">
-      <div class="col-xs-2 inbox-username"><strong>Username</strong></div>
-      <div class="col-xs-6"><strong>Last Message</strong></div>
-      <div class="col-xs-4 inbox-last-update"><strong>Last Send/Received On</strong></div>
-    </div>
+<div class="container container-border">
+  <div class="row" id="inbox-header">
+    <div class="col-xs-2 inbox-username"><strong><h4>Username</h4></strong></div>
+    <div class="col-xs-6"><strong><h4>Last Message</h4></strong></div>
+    <div class="col-xs-4 inbox-last-update"><strong><h4>Last Send/Received On</h4></strong></div>
+  </div>
     <% if !@conversations.empty? %>
     <% @conversations.reverse.each do |c| %>
-      <div class="row ">
+      <div class="row orange-bottom conversation">
           <div class="col-xs-2">
           <% if c.user.username != current_user.username %>
               <a href="/conversations/<%= c.id %>"><%= c.user.username %></a>
@@ -25,7 +25,7 @@
             <span class="last-message-received"><%= c.messages.last.content %></span>
           </div>
           <div class="col-xs-4 inbox-last-update">
-            <%= c.messages.last.created_at.strftime("%B %d -  %H:%M")%>
+            <h5><%= c.messages.last.created_at.strftime("%B %d -  %H:%M")%></h5>
           </div>
       </div>
     <% end %>

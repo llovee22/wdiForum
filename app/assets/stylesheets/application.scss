@@ -34,7 +34,7 @@
   height: 50px;
 }
 
-#forum-mainpage-header, .subforum-header {
+#forum-mainpage-header, .subforum-header, #inbox-header {
   height: 30px;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Pm8iSSpLPACDIKbuFvim2ZfCAIO2bjaQq5t-Fbiic97dMgrC5w');
   opacity: 0.7;
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2px;
 }
 
-.subforum-list:hover, .discussion-list:hover, .message:hover {
+.subforum-list:hover, .discussion-list:hover, .message:hover, .conversation:hover {
   background-color: #FFFAF6;
 }
 
@@ -102,12 +102,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-.subforum-tag {
+.subforum-tag, .inbox-tag {
   background: linear-gradient(#EAF3FB, #FFFFFF);
   font-weight: bolder;
 }
 
-.subforum-tag h4 {
+.subforum-tag h4, .inbox-tag h4 {
   color: #666;
 }
 
