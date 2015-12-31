@@ -14,7 +14,7 @@
 
     <div class="row post-show-row">
         <div class="col-xs-3 post-show-owner-section">
-              <img class="profilePicture" src="<%= @article.user.image_url %>"><br>
+
             <span>Posted by: <%= link_to "#{@article.user.username}", user_information_path(@article.user) %></span><br>
             <% if @article.user == current_user %>
             <div class="dropdown collapse navbar-collapse">
@@ -48,7 +48,6 @@
 <div class="post-show-individual container-fluid show-reply">
   <div class="row">
     <div class="col-xs-3 post-show-owner-section">
-        <img class="profilePicture" src="<%= c.user.image_url %>"><br>
         <%= link_to "#{c.user.username}", user_information_path(c.user) %><br>
         <% if is_owner?(c) %>
         <div class="dropdown collapse navbar-collapse">

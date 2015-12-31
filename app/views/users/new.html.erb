@@ -3,7 +3,7 @@
   <li class="current-page">User Sign-up</li>
 </ol>
 
-<div class="container new-user">
+<div class="container gray-background container-border">
 <%= form_for @user, :html => {class:"form-horizontal", :multipart => true} do |f| %>
 <% if @user.errors.any? %>
   <div id="error_explanation" class="col-md-offset-4">
@@ -19,15 +19,13 @@
 <% end %>
 
   <fieldset>
-
-
-
-      <div class="form-group new-user-header">
-          <span class="col-md-7 col-md-offset-5" id="registerTag">
+      <div class="form-group form-header no-vert-margin">
+          <span class="col-md-7 col-md-offset-5">
             Register
           </span>
       </div>
 
+<div class="form-group-margin">
     <div class="form-group">
         <%= f.label :username, class: "col-md-4 control-label" %>
         <div class="col-md-4">
@@ -66,14 +64,6 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :profile_picture, class: "control-label col-xs-4 formLabel" %>
-      <div class="col-xs-5">
-      <%= f.file_field :image, class: "btn"%>
-    </div>
-    </div>
-
-
-    <div class="form-group">
         <%= f.label  :user_type, class: "col-md-4 control-label" %>
         <div class="col-md-4">
           <div class="btn-group" data-toggle="buttons-radio">
@@ -92,14 +82,13 @@
         </div>
     </div>
 
-
-
     <div class="form-group">
         <div class="col-md-8 col-md-offset-4">
             <%= f.submit "Register", class: "btn btn-default submit-btn"%>
             <%= link_to "Already Have An Account?", login_path, class: "btn btn-default submit-btn"%>
         </div>
     </div>
+  </div>
 </fieldset>
 <% end %>
 </div>

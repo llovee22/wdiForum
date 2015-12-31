@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
 		has_secure_password
 		before_save :default_values
 
-  	mount_uploader :image, ImageUploader
-
 		def default_values
 			self.chatroom_id ||= 1
 			self.user_type ||= "Student"
@@ -25,7 +23,7 @@ class User < ActiveRecord::Base
 		has_many :likes, dependent: :destroy
 		has_many :announcements, dependent: :destroy
 
-		validates_presence_of :fname, :lname, :password, :password_confirmation, :image, :on => [ :create]
+		validates_presence_of :fname, :lname, :password, :password_confirmation, :on => [ :create]
 		validates_presence_of :fname, :lname, :password_confirmation, :on => [ :update]
 		validates :username, uniqueness: true, length: {minimum: 3, maximum: 20}
 		validates :verification, inclusion: { in: %w(awesome amazing)}, if: :is_instructor?
