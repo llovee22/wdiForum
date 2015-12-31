@@ -14,7 +14,8 @@
 
     <div class="row">
         <div class="col-xs-3 post-show-owner-section">
-          <%= image_tag @survey.user.image %><br>
+          <img src="<%= @survey.user.image %>"><br>
+
             <span>Posted by: <%= link_to "#{@survey.user.username}", user_information_path(@survey.user) %></span><br>
             <% if @survey.user == current_user %>
             <div class="dropdown collapse navbar-collapse">
