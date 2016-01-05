@@ -4,18 +4,24 @@
   <li class="current-page"><%= @announcement.title %></li>
 </ol>
 
-<div class="post-show-individual container-fluid">
-  <div class="row post-show-title">
-    <div class="col-xs-3"></div>
-    <div class="col-xs-9">
-      <strong><span><%= @announcement.title %></span></strong>
+<div class="container-border container-fluid">
+  <div class="row show-header">
+    <h4> &nbsp; <%= @announcement.title %></h4>
+  </div>
+
+  <div class="row orange-bottom">
+    <div class="col-xs-3 show-left-column gray-right">
+      <h4><%= link_to "#{@announcement.user.username}", user_information_path(@announcement.user) %></h4>
+    </div>
+
+    <div class="col-xs-7">
+      <h4 class="gray"> Posted on <%= @announcement.created_at.strftime("%b %d, %H:%m") %></h4>
     </div>
   </div>
 
-  <div class="row post-show-row">
-    <div class="col-xs-3 post-show-owner-section">
+  <div class="row">
+    <div class="col-xs-3 show-left-column gray-right" id="post-left">
       <img src="<%= @announcement.user.image %>"><br>
-      <span>Posted by: <%= link_to "#{@announcement.user.username}", user_information_path(@announcement.user) %></span><br>
       <% if is_owner?(@announcement) %>
         <div class="dropdown collapse navbar-collapse">
           <a class="btn btn-default submit-btn dropdown" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,8 +35,18 @@
       <% end %>
     </div>
 
-    <div class="col-xs-9 post-show-content">
+    <div class="col-xs-9 show-right-column" id="post-right">
       <%= render html: @announcement.content.html_safe %>
+      <div class="bottom">AHHHH</div>
     </div>
   </div>
+
 </div>
+<script>
+
+  setInterval(function(){
+    var postHeight = $('#post-right').css('height')
+    $('#post-left').css('height', postHeight)
+  }, 1)
+
+</script>

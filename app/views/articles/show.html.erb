@@ -4,20 +4,24 @@
   <li class="current-page"><%= @article.title %></li>
 </ol>
 
-<div class="post-show-individual container-fluid">
-  <div class="row post-show-title">
-    <div class="col-xs-3"></div>
+<div class="container-border container-fluid">
+  <div class="row show-header">
+    <h4> &nbsp; <%= @article.title %></h4>
+  </div>
 
-    <div class="col-xs-9">
-      <strong><span><%= @article.title %> </span></strong>
+  <div class="row orange-bottom">
+    <div class="col-xs-3 show-left-column gray-right">
+      <h4><%= link_to "#{@article.user.username}", user_information_path(@article.user) %></h4>
+    </div>
+
+    <div class="col-xs-7">
+      <h4 class="gray"> Posted on <%= @article.created_at.strftime("%b %d, %H:%m") %></h4>
     </div>
   </div>
 
-  <div class="row post-show-row">
-    <div class="col-xs-3 post-show-owner-section">
+  <div class="row">
+    <div class="col-xs-3 show-left-column gray-right">
       <img src="<%= @article.user.image %>"><br>
-      <span>Posted by: <%= link_to "#{@article.user.username}", user_information_path(@article.user) %></span><br>
-
       <% if @article.user == current_user %>
         <div class="dropdown collapse navbar-collapse">
           <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Action</a>
@@ -59,7 +63,7 @@
         <% end %>
       </div>
 
-      <div class="col-xs-9 post-show-content">
+      <div class="col-xs-9 show-right-column">
         <%= render html: c.content.html_safe %>
       </div>
     </div>

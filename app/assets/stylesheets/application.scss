@@ -17,7 +17,7 @@
   height: 50px;
 }
 
-#forum-mainpage-header, .subforum-header, #inbox-header, .profile-header {
+#forum-mainpage-header, .subforum-header, #inbox-header, .profile-header, .show-header {
   height: 30px;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Pm8iSSpLPACDIKbuFvim2ZfCAIO2bjaQq5t-Fbiic97dMgrC5w');
   opacity: 0.7;
@@ -92,7 +92,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .orange-bottom {
   border-bottom: 1px solid #F9D7AC;
-  padding: 2px;
+}
+
+.gray-right {
+  border-right: 1px solid #EEE;
 }
 
 .gray-bottom {
@@ -108,6 +111,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   border: 5px solid #F7931D;
   border-radius: 10px;
+}
+
+.show-left-column img {
+  border: 5px solid #F7931D;
+  width: 80%;
 }
 
 .subforum-tag, .inbox-tag {
@@ -141,6 +149,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 body {
+  padding-top: 50px;
   background-color: #F8F8F8;
   margin-bottom: 50px;
 }
@@ -258,16 +267,6 @@ body {
   font-weight: bolder;
 }
 
-.post-show-title {
-  background: linear-gradient(#2B5197, #3E7BB8);
-  color: white;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border: 1px solid #9DB3C5;
-}
-.post-show-individual {
-  border: 1px solid #9DB3C5;
-}
 
 .post-show-owner-section {
   text-align: center;
@@ -283,18 +282,6 @@ body {
 
 }
 
-.show-reply {
-  margin-top: 5px;
-}
-
-.message-heading {
-  background: linear-gradient(#3364A6,#CAD9EA);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: white;
-  font-weight: bolder;
-}
-
 .send-btn, .message-btn, .new-post-btn {
   background: linear-gradient(#FFF8DF, white);
 }
@@ -308,30 +295,18 @@ body {
   text-align: right;
 }
 
-.show-user {
-  border: 1px solid transparent;
-  border-color: #CAD9EA;
-}
-
 .submit-btn {
   border-radius: 5px;
   background: linear-gradient(#FFF8DF, white);
 }
-
-
-
-
 
 .pagination {
   margin: 0px;
 }
 
 
-.post-show-content {
-  padding: 5px 5px 0px 15px;
-  height: 250px;
-  overflow: auto;
-  overflow-x: hidden;
+.show-right-column {
+  padding: 15px 5px 15px 15px;
 }
 
 .show-post-image {
@@ -349,8 +324,10 @@ body {
 }
 
 .post-show-content img {
-  height: 150px;
+  height: 200px;
 }
+
+
 
 .like-count {
   font-style: italic;
@@ -416,4 +393,16 @@ body {
 #user-dropdown a {
     color: #FF7500;
     font-weight: bolder;
+}
+
+.show-left-column {
+  background-color: #FFFAF4;
+}
+
+.gray {
+  color: gray;
+}
+
+#post-right {
+  min-height: 350px;
 }
