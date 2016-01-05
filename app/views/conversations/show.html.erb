@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-xs-2"></div>
-      <div class="col-xs-8 chat-header">
+      <div class="col-xs-8 chat-header container-border">
         <h4> &nbsp; :: Personal Message ::</h4>
       </div>
       <div class="col-xs-2"></div>
@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="col-xs-2"></div>
-        <div class="col-xs-8" id="xs-padding-adjust">
+        <div class="col-xs-8 container-border no-top-border" id="xs-padding-adjust">
             <div class="chat-container gray-background">
                 <% if current_user %>
                     <% @messages.each do |m| %>
