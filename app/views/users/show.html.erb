@@ -60,13 +60,15 @@
         <div class="col-xs-3 align-right"><h4>Post Date</h4></div>
       </div>
 
-      <% if @surveys.empty? %>
-        <%= @user.username %> has not yet posted in Feedback Inbox
-      <% else %>
-        <% @surveys.each do |s| %>
-          <div class="pair2">
+      <div class="pair2">
+        <% if @surveys.empty? %>
+          <%= @user.username %> has not yet posted in Feedback Inbox
+        <% else %>
+          <% @surveys.each do |s| %>
+
             <div class="row orange-bottom">
               <div class="col-xs-9"><%= link_to "#{s.title}", survey_path(s) %></div>
+
               <div class="col-xs-3 align-right"><%= s.created_at.strftime("%b %d, %Y %l:%M %p") %></div>
             </div>
           <% end %>
