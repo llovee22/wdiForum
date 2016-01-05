@@ -40,6 +40,9 @@
   opacity: 0.7;
 }
 
+.subforum-footer {
+  margin-top: 15px;
+}
 .chat-header h4 {
   color: black;
 }
@@ -462,6 +465,18 @@ body {
 .min-height-200 {
   min-height: 200px;
 }
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+  background: #FFDDA9;
+  color: black;
+  font-weight: bolder;
+  border-color: #DDDDDD;
+}
+.pagination > li > a, .pagination > li > span, .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus  {
+  background: linear-gradient(#FFF8E1, #FFFFFF);
+  color: gray;
+}
+
 // .previous_page { background-color: #7777ff; color:white }
   // .previous_page.disabled { background: white; color: #777 }
   // .current { background: yellow }
