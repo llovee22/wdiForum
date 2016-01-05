@@ -44,7 +44,6 @@
   color: black;
 }
 
-
 .feature-subheader {
   background-color: #FFF3E7;
 }
@@ -153,68 +152,24 @@ body {
   // background-image: url('http://stage48.net/forum/styles/default/xenforo/new/bg.jpg')
 }
 
-#registerTag, #accountSettingTag {
-  font-size: 20px;
-  font-weight: bolder;
-}
-
-.profilePicture {
-  border-radius: 30px;
+.user-picture {
   height: 200px;
-  max-width: 80%;
+  width: 200px;
   margin-bottom: 10px;
 }
 
 .breadcrumb {
   margin-top: 0px;
   margin-bottom: 30px;
-  // background-color: #F8F8F8;
-  // border: 1px solid transparent;
-  // border-color: #e7e7e7;
-  // border-color: #E7E3D7;
   color: gray;
-  // background-color: black;
-  // background-color: #EEF5FC;
   background-color: #F8F8F8;
-  // background: linear-gradient(#FFF8DF, white);
   font-weight: bolder;
   border-radius: 0px;
-
-
 }
-
-.listing {
-  // border-radius: 5px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #F8F8F8;
-  border: 1px solid transparent;
-  border-color: #e7e7e7;
-}
-
-.listing .row {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-// .replySection {
-//   margin-top: 15px;
-// }
-//
-// .postReply {
-//   margin-top: 15px;
-// }
-
-
 
 .form-header span {
   font-size: 20px;
 }
-
-// .form-subheader {
-// background-color: #FFF3E7;
-//
-// }
 
 .form-group-margin .form-group {
   margin-top: 10px;
@@ -234,62 +189,13 @@ body {
   padding: 10px 10px 10px 10px;
 }
 
-
-
-
-
 .message-input-box {
   margin-top: 15px;
 }
 
-
 .index-container {
   // border-radius: 5px;
   padding-bottom: 15px;
-}
-
-.index-user-picture {
-  height: 50px;
-  text-align: center;
-}
-
-.index-heading {
-  // border-bottom: 3px solid transparent;
-  // background-color: black;
-  background: linear-gradient(#2D569B, #3D7AB7);
-  // background-color: #376CAC;
-  color: white;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding: 8px 0px 8px 0px;
-  // border-radius: 5px 5px 0px 0px;
-  font-weight: bolder;
-}
-
-.index-listing {
-  // background-color: white;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding: 5px 10px 5px 10px;
-  // background-color: #F8F8F8;
-  // background: linear-gradient(#F5FAFE, white);
-  background-color: #F5FAFE;
-  border: 1px solid transparent;
-  border-color: #e7e7e7;
-  // border-radius: 0px 0px 5px 5px;
-}
-
-.index-listing .row {
-  margin-top: 5px;
-  margin-left: -8px;
-  margin-right: -8px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid transparent;
-  border-color: #CAD9EA;
-}
-
-.index-listing .row:hover, .inbox-log .row:hover {
-  background-color: #EAF4FD;
 }
 
 .breadcrumb a {
