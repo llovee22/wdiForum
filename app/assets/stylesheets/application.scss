@@ -137,17 +137,6 @@ h1, h2, h3, h4, h5, h6 {
  background-color: #F8F8F8;
 }
 
-// .no-bottom-border {
-//   border: 1px solid #999;
-//   border-bottom: 0px;
-// }
-//
-// .no-top-border {
-//   border: 1px solid #999;
-//   border-top: 0px;
-// }
-
-
 
 
 
@@ -511,9 +500,6 @@ body {
   text-align: center
 }
 
-.user-history {
-  overflow: auto;
-}
 
 
 .like-btn {
@@ -539,9 +525,27 @@ body {
   padding-left: 0px;
   padding-right: 0px;
 }
+
 .xs-padding-adjust {
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.pair1 {
+  height: 400px;
+}
+
+.pair2 {
+  height: 150px;
+}
+
+.center-middle {
+  text-align: center;
+  font-style: italic;
+}
+
+.left-margin {
+  margin-left: 15px;
 }
 // .previous_page { background-color: #7777ff; color:white }
   // .previous_page.disabled { background: white; color: #777 }
