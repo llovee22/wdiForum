@@ -8,25 +8,27 @@
 <div class="container edit-reply">
 <%= form_for(@answer, url: update_answer_path(@answer), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
 <fieldset>
-  <div class="form-group edit-reply-header">
+  <div class="form-group post-header">
       <span class="col-md-7 col-md-offset-5">
           <em>Edit Comment</em>
       </span>
   </div>
   <div class="form-group">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-9">
+      <div class="col-xs-2"></div>
 
+      <div class="col-xs-8">
           <%= f.text_area :answer, placeholder: "Minimum length: 2", class: "form-control wysihtml5"%>
       </div>
-      <div class="col-xs-1">
-      </div>
+
+      <div class="col-xs-1"></div>
   </div>
 
   <div class="form-group">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-7">
-        <%= f.submit 'Post', class: "btn btn-default submit-btn"%></div>
+    <div class="col-xs-2"></div>
+
+    <div class="col-xs-8">
+        <%= f.submit 'Post', class: "btn btn-default submit-btn btn-block"%>
+      </div>
   </div>
 
 </fieldset>
