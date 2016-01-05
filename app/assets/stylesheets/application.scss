@@ -537,6 +537,9 @@ body {
 
 .pair2 {
   height: 150px;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .center-middle {
