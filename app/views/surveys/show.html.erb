@@ -5,77 +5,73 @@
 </ol>
 
 <div class="post-show-individual container-fluid">
-    <div class="row post-show-title">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-9">
-            <strong><span><%= @survey.title %></span></strong>
+  <div class="row post-show-title">
+    <div class="col-xs-3"></div>
+
+    <div class="col-xs-9">
+      <strong><span><%= @survey.title %></span></strong>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 post-show-owner-section">
+      <img src="<%= @survey.user.image %>"><br>
+      <span>Posted by: <%= link_to "#{@survey.user.username}", user_information_path(@survey.user) %></span><br>
+
+      <% if @survey.user == current_user %>
+        <div class="dropdown collapse navbar-collapse">
+          <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Action</a>
+          <ul class="dropdown-menu pull-right">
+            <li><%= link_to 'Edit', edit_survey_path(@survey) %></li>
+            <li><%= link_to 'Delete', destroy_survey_path(@survey), method: :delete %></li>
+          </ul>
         </div>
+      <% end %>
+
+      <% if current_user && current_user != @survey.user %>
+        <% if @survey.likes.find_by(user_id: current_user.id).nil? %>
+          <%= render 'likes/form'%>
+        <% else %>
+          <%= link_to 'Unlike', destroy_like_path(@survey.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
+        <% end %>
+      <% end %>
     </div>
 
-    <div class="row">
-        <div class="col-xs-3 post-show-owner-section">
-          <img src="<%= @survey.user.image %>"><br>
-
-            <span>Posted by: <%= link_to "#{@survey.user.username}", user_information_path(@survey.user) %></span><br>
-            <% if @survey.user == current_user %>
-            <div class="dropdown collapse navbar-collapse">
-              <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More Action
-              </a>
-              <ul class="dropdown-menu pull-right">
-                <li><%= link_to 'Edit', edit_survey_path(@survey) %></li>
-                <li><%= link_to 'Delete', destroy_survey_path(@survey), method: :delete %></li>
-              </ul>
-            </div>
-            <% end %>
-            <% if current_user && current_user != @survey.user %>
-            <% if @survey.likes.find_by(user_id: current_user.id).nil? %>
-              <%= render 'likes/form'%>
-            <% else %>
-              <%= link_to 'Unlike', destroy_like_path(@survey.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
-            <% end %>
-            <% end %>
-        </div>
-
-        <div class="col-xs-9 post-show-content">
-            <div>
-            <%= render html: @survey.question.html_safe %><br>
-            </div>
-
-        </div>
+    <div class="col-xs-9 post-show-content">
+      <div>
+        <%= render html: @survey.question.html_safe %><br>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
-
 
 <!-- if the current user is the user who created the survey -->
 <% if current_user %>
-<% if is_owner?(@survey) %>
-  <% @answers.each do |a| %>
+  <% if is_owner?(@survey) %>
+    <% @answers.each do |a| %>
       <div class="post-show-individual container-fluid show-reply">
-          <div class="row">
-              <div class="col-xs-3 post-show-owner-section">
-                  User: <%= link_to "#{a.user.username}", user_information_path(a.user) %>
-              </div>
-              <div class="col-xs-9">
-                  <%= a.answer %>
-              </div>
+        <div class="row">
+          <div class="col-xs-3 post-show-owner-section">
+            User: <%= link_to "#{a.user.username}", user_information_path(a.user) %>
           </div>
+
+          <div class="col-xs-9">
+            <%= a.answer %>
+          </div>
+        </div>
       </div>
     <% end %>
-<!-- if the current user never answered the survey before -->
-<% elsif @my_answers.empty? %>
-  <%= render 'answers/form' %>
-<% else %>
-  <% @my_answers.each do |a| %>
-    <div class="post-show-individual container-fluid show-reply">
-      <div class="row">
-        <div class="col-xs-3 post-show-owner-section">
-              <img class="profilePicture" src="<%= a.user.image_url %>"> <br>
-
+  <!-- if the current user never answered the survey before -->
+  <% elsif @my_answers.empty? %>
+    <%= render 'answers/form' %>
+  <% else %>
+    <% @my_answers.each do |a| %>
+      <div class="post-show-individual container-fluid show-reply">
+        <div class="row">
+          <div class="col-xs-3 post-show-owner-section">
+            <img class="profilePicture" src="<%= a.user.image_url %>"> <br>
             <%= link_to "#{a.user.username}", user_information_path(a.user) %><br>
+
             <div class="dropdown collapse navbar-collapse">
               <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 More Action
@@ -85,12 +81,13 @@
                 <li><%= link_to 'Delete', destroy_answer_path(a), method: :delete %></li>
               </ul>
             </div>
-        </div>
-        <div class="col-xs-9 post-show-content">
+          </div>
+
+          <div class="col-xs-9 post-show-content">
             <%= render html: a.answer.html_safe %><br>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
-<% end %>
+  <% end %>
 <% end %>

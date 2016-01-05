@@ -5,17 +5,19 @@
 </ol>
 
 <div class="message-input-box">
-<%= form_for(@chat, url: update_chat_path(@chat), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
-<fieldset>
-<div class="form-group ">
-    <div class="col-xs-2"></div>
-    <div class="col-xs-7">
-        <%= f.text_field :content, placeholder: "Enter your message here", class: "form-control"%>
-    </div>
-    <div class="col-xs-3">
-        <%= f.submit 'Send', class: "btn btn-default"%>
-    </div>
-</div>
-</fieldset>
-<% end %>
+  <%= form_for(@chat, url: update_chat_path(@chat), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
+    <fieldset>
+      <div class="form-group ">
+        <div class="col-xs-2"></div>
+
+        <div class="col-xs-7">
+          <%= f.text_field :content, placeholder: "Enter your message here", class: "form-control"%>
+        </div>
+
+        <div class="col-xs-3">
+          <%= f.submit 'Send', class: "btn btn-default"%>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
 </div>

@@ -5,70 +5,67 @@
 </ol>
 
 <div class="post-show-individual container-fluid">
-    <div class="row post-show-title">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-9">
-            <strong><span><%= @article.title %> </span></strong>
-        </div>
+  <div class="row post-show-title">
+    <div class="col-xs-3"></div>
+
+    <div class="col-xs-9">
+      <strong><span><%= @article.title %> </span></strong>
     </div>
+  </div>
 
-    <div class="row post-show-row">
-        <div class="col-xs-3 post-show-owner-section">
-        <img src="<%= @article.user.image %>"><br>
-            <span>Posted by: <%= link_to "#{@article.user.username}", user_information_path(@article.user) %></span><br>
-            <% if @article.user == current_user %>
-            <div class="dropdown collapse navbar-collapse">
-              <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More Action
-              </a>
-              <ul class="dropdown-menu pull-right">
-                <li><%= link_to 'Edit', edit_article_path(@article) %></li>
-                <li><%= link_to 'Delete', destroy_article_path(@article), method: :delete %></li>
-              </ul>
-            </div>
-            <% end %>
-            <% if !is_owner?(@article) && logged_in? %>
-            <% if @article.likes.find_by(user_id: current_user.id).nil? %>
-              <%= render 'likes/form' %>
-            <% else %>
-              <%= link_to 'Unlike', destroy_like_path(@article.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
-            <% end %>
-            <% end %>
-        </div>
-        <div class="col-xs-9 post-show-content">
-            <%= render html: @article.content.html_safe %>
-        </div>
-    </div>
-
-</div>
-
-
-
-<% @comments.each do |c| %>
-<div class="post-show-individual container-fluid show-reply">
-  <div class="row">
+  <div class="row post-show-row">
     <div class="col-xs-3 post-show-owner-section">
-        <%= link_to "#{c.user.username}", user_information_path(c.user) %><br>
-        <% if is_owner?(c) %>
+      <img src="<%= @article.user.image %>"><br>
+      <span>Posted by: <%= link_to "#{@article.user.username}", user_information_path(@article.user) %></span><br>
+
+      <% if @article.user == current_user %>
         <div class="dropdown collapse navbar-collapse">
-          <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More Action
-          </a>
+          <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Action</a>
           <ul class="dropdown-menu pull-right">
-            <li><%= link_to 'Edit', edit_comment_path(c) %></li>
-            <li><%= link_to 'Delete', destroy_comment_path(c), method: :delete %></li>
+            <li><%= link_to 'Edit', edit_article_path(@article) %></li>
+            <li><%= link_to 'Delete', destroy_article_path(@article), method: :delete %></li>
           </ul>
         </div>
+      <% end %>
+
+      <% if !is_owner?(@article) && logged_in? %>
+        <% if @article.likes.find_by(user_id: current_user.id).nil? %>
+          <%= render 'likes/form' %>
+        <% else %>
+          <%= link_to 'Unlike', destroy_like_path(@article.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
         <% end %>
+      <% end %>
     </div>
+
     <div class="col-xs-9 post-show-content">
-        <%= render html: c.content.html_safe %>
+      <%= render html: @article.content.html_safe %>
     </div>
   </div>
 </div>
+
+<% @comments.each do |c| %>
+  <div class="post-show-individual container-fluid show-reply">
+    <div class="row">
+      <div class="col-xs-3 post-show-owner-section">
+        <%= link_to "#{c.user.username}", user_information_path(c.user) %><br>
+        <% if is_owner?(c) %>
+          <div class="dropdown collapse navbar-collapse">
+            <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Action</a>
+            <ul class="dropdown-menu pull-right">
+              <li><%= link_to 'Edit', edit_comment_path(c) %></li>
+              <li><%= link_to 'Delete', destroy_comment_path(c), method: :delete %></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-xs-9 post-show-content">
+        <%= render html: c.content.html_safe %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <% if current_user %>
     <%= render 'comments/form' %>
 <% end %>
-</div>

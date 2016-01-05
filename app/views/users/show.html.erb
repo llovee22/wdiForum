@@ -4,72 +4,74 @@
 </ol>
 
 <div class="container">
-<div class="row">
-  <div class="col-xs-3 profile-header container-border">
-    <h4> :: User Information :: </h4>
+  <div class="row">
+    <div class="col-xs-3 profile-header container-border">
+      <h4> :: User Information :: </h4>
+    </div>
+    <div class="col-xs-9 profile-header container-border">
+      <h4> :: Articles created by <%= @user.username %> :: </h4>
+    </div>
   </div>
-  <div class="col-xs-9 profile-header container-border">
-    <h4> :: Articles created by <%= @user.username %> :: </h4>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3 container-border pair1">
-    <img src="<%= @user.image %>"><br>
-    <span class="profileInfo"> <strong>Username:</strong> <%= link_to "#{@user.username}", user_information_path(@user) %></span><br>
-    <span class="profileInfo">  <strong>Name:</strong> <%= @user.fname %> <%= @user.lname %></span><br>
-    <span class="profileInfo"> <strong>Type:</strong> <%= @user.user_type %><br><br></span><br>
 
-    <% if current_user && @user != current_user %>
-      <% if @conversation.nil? %>
-        <%= render 'conversations/form' %>
+  <div class="row">
+    <div class="col-md-3 container-border pair1">
+      <img src="<%= @user.image %>"><br>
+      <span class="profileInfo"> <strong>Username:</strong> <%= link_to "#{@user.username}", user_information_path(@user) %></span><br>
+      <span class="profileInfo">  <strong>Name:</strong> <%= @user.fname %> <%= @user.lname %></span><br>
+      <span class="profileInfo"> <strong>Type:</strong> <%= @user.user_type %><br><br></span><br>
+
+      <% if current_user && @user != current_user %>
+        <% if @conversation.nil? %>
+          <%= render 'conversations/form' %>
+        <% else %>
+          <a href="/conversations/<%= @conversation.id %>" class="btn btn-default message-btn">Message</a>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-md-9 container-border pair1">
+      <div class="row feature-subheader orange-bottom">
+        <div class="col-xs-9"><h4>Article Title</h4></div>
+
+        <div class="col-xs-3 align-right"><h4>Post Date</h4></div>
+      </div>
+
+      <div class="pair2">
+        <% if @articles.empty? %>
+          <div class="center-middle"><%= @user.username %> has not yet posted in General Discussion</div>
+        <% else %>
+          <% @articles.each do |a| %>
+            <div class="row orange-bottom">
+              <div class="col-xs-9"><%= link_to "#{a.title}", article_path(a) %></div>
+
+              <div class="col-xs-3 align-right"><%= a.created_at.strftime("%b %d, %Y %l:%M %p") %></div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="row profile-header container-border">
+        <h4> &nbsp; :: Surveys created by <%= @user.username %> :: </h4>
+      </div>
+
+      <div class="row feature-subheader orange-bottom">
+        <div class="col-xs-9"><h4>Survey Title</h4></div>
+
+        <div class="col-xs-3 align-right"><h4>Post Date</h4></div>
+      </div>
+
+      <% if @surveys.empty? %>
+        <%= @user.username %> has not yet posted in Feedback Inbox
       <% else %>
-        <a href="/conversations/<%= @conversation.id %>" class="btn btn-default message-btn">Message</a>
-      <% end %>
-    <% end %>
+        <% @surveys.each do |s| %>
+          <div class="pair2">
+            <div class="row orange-bottom">
+              <div class="col-xs-9"><%= link_to "#{s.title}", survey_path(s) %></div>
+              <div class="col-xs-3 align-right"><%= s.created_at.strftime("%b %d, %Y %l:%M %p") %></div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="col-md-9 container-border pair1">
-    <div class="row feature-subheader orange-bottom">
-      <div class="col-xs-9"><h4>Article Title</h4></div>
-      <div class="col-xs-3 align-right"><h4>Post Date</h4></div>
-    </div>
-
-    <div class="pair2">
-    <% if @articles.empty? %>
-        <div class="center-middle"><%= @user.username %> has not yet posted in General Discussion</div>
-    <% else %>
-      <% @articles.each do |a| %>
-      <div class="row orange-bottom">
-        <div class="col-xs-9"><%= link_to "#{a.title}", article_path(a) %></div>
-        <div class="col-xs-3 align-right"><%= a.created_at.strftime("%b %d, %Y %l:%M %p") %></div>
-          </div>
-      <% end %>
-
-    <% end %>
-  </div>
-
-
-    <div class="row profile-header container-border">
-      <h4> &nbsp; :: Surveys created by <%= @user.username %> :: </h4>
-    </div>
-    <div class="row feature-subheader orange-bottom">
-      <div class="col-xs-9"><h4>Survey Title</h4></div>
-      <div class="col-xs-3 align-right"><h4>Post Date</h4></div>
-    </div>
-    <% if @surveys.empty? %>
-      <%= @user.username %> has not yet posted in Feedback Inbox
-    <% else %>
-    <% @surveys.each do |s| %>
-    <div class="pair2">
-    <div class="row orange-bottom">
-      <div class="col-xs-9"><%= link_to "#{s.title}", survey_path(s) %></div>
-      <div class="col-xs-3 align-right"><%= s.created_at.strftime("%b %d, %Y %l:%M %p") %></div>
-    </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-</div>
-
-</div>
 </div>

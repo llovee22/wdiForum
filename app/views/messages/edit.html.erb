@@ -5,22 +5,25 @@
 </ol>
 
 <div class="container edit-reply">
-<%= form_for(@message, url: update_message_path(@message), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
-<fieldset>
-  <div class="form-group edit-reply-header">
-      <span class="col-md-7 col-md-offset-5">
+  <%= form_for(@message, url: update_message_path(@message), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
+    <fieldset>
+      <div class="form-group edit-reply-header">
+        <span class="col-md-7 col-md-offset-5">
           <em>Edit Message</em>
-      </span>
-  </div>
-<div class="form-group ">
-    <div class="col-xs-2"></div>
-    <div class="col-xs-7">
-        <%= f.text_field :content, placeholder: "Enter your message here",class: "form-control"%>
-    </div>
-    <div class="col-xs-3">
-        <%= f.submit 'Send', class: "btn btn-default submit-btn"%>
-    </div>
-</div>
-</fieldset>
-<% end %>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-2"></div>
+
+        <div class="col-xs-7">
+          <%= f.text_field :content, placeholder: "Enter your message here",class: "form-control"%>
+        </div>
+
+        <div class="col-xs-3">
+          <%= f.submit 'Send', class: "btn btn-default submit-btn"%>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
 </div>

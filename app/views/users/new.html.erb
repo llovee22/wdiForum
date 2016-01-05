@@ -4,13 +4,12 @@
 </ol>
 
 <div class="container gray-background container-border">
-<%= form_for @user, :html => {class:"form-horizontal", :multipart => true} do |f| %>
-  <fieldset>
+  <%= form_for @user, :html => {class:"form-horizontal", :multipart => true} do |f| %>
+    <fieldset>
       <div class="form-group form-header no-vert-margin">
-          <span class="col-md-7 col-md-offset-5">
-            Register
-          </span>
+        <span class="col-md-7 col-md-offset-5">Register</span>
       </div>
+
       <% if @user.errors.any? %>
         <div class="col-md-offset-4">
           <h5>
@@ -23,70 +22,69 @@
           </ol>
         </div>
       <% end %>
-<div class="form-group-margin">
-    <div class="form-group">
-        <%= f.label :username, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-            <%= f.text_field :username , placeholder: "Username", class: "form-control"  %>
-        </div>
-    </div>
 
-    <div class="form-group">
-        <%= f.label :first_name, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-            <%= f.text_field :fname, placeholder: "First name", class: "form-control" %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label  :last_name, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-            <%= f.text_field :lname , placeholder: "Last name", class: "form-control" %>
-        </div>
-    </div>
-
-
-
-    <div class="form-group">
-        <%= f.label  :password, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-          <%= f.password_field :password, placeholder: "Password", class: "form-control"%>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :password_confirmation, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-            <%= f.password_field :password_confirmation, placeholder: "Confirm password entered", class: "form-control"%>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label  :user_type, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-          <div class="btn-group" data-toggle="buttons-radio">
-            <%= f.radio_button :user_type, 'Student' %>
-            <%= f.label :user_type, 'Student', :value => 'Student' %>
-            <%= f.radio_button :user_type, 'Instructor' %>
-            <%= f.label :user_type, 'Instructor', :value => 'Instructor' %>
+      <div class="form-group-margin">
+        <div class="form-group">
+          <%= f.label :username, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+          <%= f.text_field :username , placeholder: "Username", class: "form-control"  %>
           </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <%= f.label :verification_code, class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-            <%= f.text_field :verification, placeholder: "Optional (Instructors Only)", class: "form-control" %>
+        <div class="form-group">
+          <%= f.label :first_name, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.text_field :fname, placeholder: "First name", class: "form-control" %>
+          </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-8 col-md-offset-4">
+        <div class="form-group">
+          <%= f.label  :last_name, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.text_field :lname , placeholder: "Last name", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label  :password, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.password_field :password, placeholder: "Password", class: "form-control"%>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.password_field :password_confirmation, placeholder: "Confirm password entered", class: "form-control"%>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label  :user_type, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <div class="btn-group" data-toggle="buttons-radio">
+              <%= f.radio_button :user_type, 'Student' %>
+              <%= f.label :user_type, 'Student', :value => 'Student' %>
+              <%= f.radio_button :user_type, 'Instructor' %>
+              <%= f.label :user_type, 'Instructor', :value => 'Instructor' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :verification_code, class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.text_field :verification, placeholder: "Optional (Instructors Only)", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-8 col-md-offset-4">
             <%= f.submit "Register", class: "btn btn-default submit-btn"%>
             <%= link_to "Already Have An Account?", login_path, class: "btn btn-default submit-btn"%>
+          </div>
         </div>
-    </div>
-  </div>
-</fieldset>
-<% end %>
+      </div>
+    </fieldset>
+  <% end %>
 </div>

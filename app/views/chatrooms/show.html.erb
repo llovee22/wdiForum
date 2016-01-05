@@ -4,47 +4,49 @@
 </ol>
 
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-2"></div>
-      <div class="col-xs-8 chat-header container-border no-bottom-border">
-        <h4> &nbsp; :: Forum Chatroom ::</h4>
-      </div>
-      <div class="col-xs-2"></div>
+  <div class="row">
+    <div class="col-xs-2"></div>
+
+    <div class="col-xs-8 chat-header container-border no-bottom-border">
+      <h4> &nbsp; :: Forum Chatroom ::</h4>
     </div>
 
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8 container-border no-top-border" id="xs-padding-adjust">
-            <div class="chat-container gray-background">
-              <% if current_user %>
-                  <% @chats.each do |c| %>
-                  <div class="row message">
-                    <div class="col-xs-10">
+    <div class="col-xs-2"></div>
+  </div>
 
-                    <a href="/users/<%= c.user.id %>"><%= c.user.username %></a><span class="message-date">
-                      <%= c.created_at.strftime("%b %d, %Y %l:%M %p") %></span>
+  <div class="row">
+    <div class="col-xs-2"></div>
 
-                    :
-                    <span><%= c.content %></span>
-                  </div>
-
-                  </div>
-                <% end %>
-            <% end %>
-        </div>
-
+    <div class="col-xs-8 container-border no-top-border" id="xs-padding-adjust">
+      <div class="chat-container gray-background">
+        <% if current_user %>
+          <% @chats.each do |c| %>
+            <div class="row message">
+              <div class="col-xs-10">
+                <a href="/users/<%= c.user.id %>"><%= c.user.username %></a>
+                <span class="message-date">
+                <%= c.created_at.strftime("%b %d, %Y %l:%M %p") %></span>:
+                <span><%= c.content %></span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <div class="col-xs-1"></div>
     </div>
-    <div class="row">
-          <div class="col-xs-1"></div>
-          <div class="col-xs-10">
-          <%= render 'chats/form' %>
-        </div>
-        <div class="col-xs-1"></div>
-        </div>
+
+    <div class="col-xs-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1"></div>
+
+    <div class="col-xs-10">
+      <%= render 'chats/form' %>
+    </div>
+
+    <div class="col-xs-1"></div>
+  </div>
 </div>
-
 
 <script>
   $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
