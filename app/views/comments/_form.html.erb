@@ -1,7 +1,7 @@
 <div class="container-fluid container-border gray-background">
   <%= form_for([@article, @article.comments.build], :html => {class:"form-horizontal"}) do |f| %>
     <fieldset>
-      <div class="form-group new-post-header gray-bottom">
+      <div class="form-group post-header">
         <span class="col-md-7 col-md-offset-5">
           <em>New Comment</em>
         </span>
@@ -10,8 +10,8 @@
       <div class="form-group">
         <div class="col-xs-2"></div>
 
-        <div class="col-xs-8">
-          <%= f.text_area :content, class: "form-control wysihtml5"%>
+        <div class="col-xs-7">
+          <%= f.text_area :content, placeholder: "Minimum length: 2", class: "form-control wysihtml5"%>
         </div>
 
         <div class="col-xs-2"></div>
@@ -21,7 +21,7 @@
         <div class="col-xs-2"></div>
 
         <div class="col-xs-7">
-          <%= f.submit 'Post', class: "btn btn-default submit-btn"%>
+          <%= f.submit 'Post', class: "btn btn-default submit-btn btn-block"%>
         </div>
       </div>
     </fieldset>

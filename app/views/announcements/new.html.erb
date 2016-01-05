@@ -4,7 +4,7 @@
   <li class="current-page">New Post</li>
 </ol>
 
-<div class="container container-border">
+<div class="container container-border gray-background">
   <%= form_for @announcement, :html => {class:"form-horizontal"} do |f| %>
     <fieldset>
       <% if @announcement.errors.any? %>
@@ -20,7 +20,7 @@
         </div>
       <% end %>
 
-      <div class="form-group new-post-header gray-bottom">
+      <div class="form-group post-header">
         <h3 class="col-md-7 col-md-offset-5">
           New Post
         </h3>
@@ -41,9 +41,8 @@
       </div>
 
       <div class="form-group">
-        <div class="col-xs-5 col-xs-offset-3">
-          <%= f.submit 'Post', class: "btn btn-default submit-btn"%>
-          <a href="/ClassAnnouncement" class="btn btn-default submit-btn">Cancel</a>
+        <div class="col-xs-6 col-xs-offset-3">
+          <%= f.submit 'Post', class: "btn btn-default submit-btn btn-block"%>
         </div>
       </div>
     </fieldset>
