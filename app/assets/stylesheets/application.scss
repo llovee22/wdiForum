@@ -477,8 +477,7 @@ body {
   color: gray;
 }
 
-// .previous_page { background-color: #7777ff; color:white }
-  // .previous_page.disabled { background: white; color: #777 }
-  // .current { background: yellow }
-  // .next_page { background: #7777ff; color: white }
-  // .next_page.disabled { background: white; color: #777 }
+#user-dropdown a {
+    color: #FF7500;
+    font-weight: bolder;
+}

@@ -18,13 +18,13 @@
           <ul class="nav navbar-nav navbar-right" id="user-function">
             <% if logged_in? %>
               <li>
-                <a href="/chatrooms/1">Forum Chatroom</a>
+                <a class="white-bold" href="/chatrooms/1">Forum Chatroom</a>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle btn-md" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="white-bold dropdown-toggle btn-md" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <%= "#{current_user.username}" %><span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" id="user-dropdown">
                   <li>
                     <%= link_to 'Inbox', user_inbox_path(current_user) %>
                   </li>
