@@ -54,7 +54,7 @@
 <% if current_user %>
   <% if is_owner?(@survey) %>
     <% @answers.each do |a| %>
-    <div class="container-fluid container-border">
+    <div class="container-fluid container-border top-margin-15">
       <div class="row orange-bottom">
         <div class="col-xs-3 show-left-column gray-right">
           <h4><%= link_to "#{a.user.username}", user_information_path(a.user) %></h4>
@@ -92,7 +92,7 @@
     <%= render 'answers/form' %>
   <% else %>
     <% @my_answers.each do |a| %>
-      <div class="container-fluid container-border">
+      <div class="container-fluid container-border top-margin-15">
         <div class="row orange-bottom">
           <div class="col-xs-3 show-left-column gray-right">
             <h4><%= link_to "#{a.user.username}", user_information_path(a.user) %></h4>

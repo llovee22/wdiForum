@@ -64,7 +64,7 @@
 </div>
 
 <% @comments.each do |c| %>
-  <div class="container-fluid container-border">
+  <div class="container-fluid container-border top-margin-15">
     <div class="row orange-bottom">
       <div class="col-xs-3 show-left-column gray-right">
         <h4><%= link_to "#{c.user.username}", user_information_path(c.user) %></h4>

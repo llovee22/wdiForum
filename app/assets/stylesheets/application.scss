@@ -24,7 +24,7 @@
 }
 
 
-.subforum-footer {
+.subforum-footer, .top-margin-15 {
   margin-top: 15px;
 }
 .chat-header h4 {
@@ -116,6 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 .show-left-column img {
   border: 5px solid #F7931D;
   width: 80%;
+  margin-top: 10px;
 }
 
 .subforum-tag, .inbox-tag {
@@ -367,6 +368,10 @@ body {
 
 .gray {
   color: gray;
+}
+
+.show-left-column p {
+  margin-bottom: 0px;
 }
 
 #post-right {
