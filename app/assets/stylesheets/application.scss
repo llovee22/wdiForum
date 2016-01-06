@@ -321,10 +321,11 @@ body {
 
 .like-btn {
   background: linear-gradient(#FFF8DF, white);
+  max-width: 90%;
 }
 
-.post-show-content img {
-  height: 200px;
+.show-right-column img {
+  max-width: 60%;
 }
 
 

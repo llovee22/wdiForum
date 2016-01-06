@@ -14,14 +14,30 @@
       <h4><%= link_to "#{@article.user.username}", user_information_path(@article.user) %></h4>
     </div>
 
-    <div class="col-xs-7">
+    <div class="col-xs-6">
       <h4 class="gray"> Posted on <%= @article.created_at.strftime("%b %d, %H:%m") %></h4>
+    </div>
+
+    <div class="col-xs-3 align-right">
+      <% if @article.user == current_user %>
+        <span><%= link_to 'Edit', edit_article_path(@article) %></span> |
+        <span><%= link_to 'Delete', destroy_article_path(@article), method: :delete %></span>
+      <% end %>
+      <% if !is_owner?(@article) && logged_in? %>
+        <% if @article.likes.find_by(user_id: current_user.id).nil? %>
+          <%= render 'likes/form' %>
+        <% else %>
+          <%= link_to 'Unlike', destroy_like_path(@article.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-xs-3 show-left-column gray-right">
+    <div class="col-xs-3 show-left-column gray-right" id="post-left">
       <img src="<%= @article.user.image %>"><br>
+        <p>Total Posts: <%= @article.user.announcements.count + @article.user.articles.count + @article.user.surveys.count %></p>
+        <p>Member since: <%= @article.user.created_at.strftime("%b %d, %Y") %></p>
       <% if @article.user == current_user %>
         <div class="dropdown collapse navbar-collapse">
           <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Action</a>
@@ -41,30 +57,41 @@
       <% end %>
     </div>
 
-    <div class="col-xs-9 post-show-content">
+    <div class="col-xs-9 show-right-column" id="post-right">
       <%= render html: @article.content.html_safe %>
     </div>
   </div>
 </div>
 
 <% @comments.each do |c| %>
-  <div class="post-show-individual container-fluid show-reply">
-    <div class="row">
-      <div class="col-xs-3 post-show-owner-section">
-        <%= link_to "#{c.user.username}", user_information_path(c.user) %><br>
-        <% if is_owner?(c) %>
-          <div class="dropdown collapse navbar-collapse">
-            <a class="btn btn-default submit-btn dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Action</a>
-            <ul class="dropdown-menu pull-right">
-              <li><%= link_to 'Edit', edit_comment_path(c) %></li>
-              <li><%= link_to 'Delete', destroy_comment_path(c), method: :delete %></li>
-            </ul>
-          </div>
+  <div class="container-fluid container-border">
+    <div class="row orange-bottom">
+      <div class="col-xs-3 show-left-column gray-right">
+        <h4><%= link_to "#{c.user.username}", user_information_path(c.user) %></h4>
+      </div>
+
+      <div class="col-xs-6">
+        <h4 class="gray"> Posted on <%= c.created_at.strftime("%b %d, %H:%m") %></h4>
+      </div>
+
+      <div class="col-xs-3 align-right">
+        <% if c.user == current_user %>
+          <span><%= link_to 'Edit', edit_comment_path(c) %></span>
+          <span><%= link_to 'Delete', destroy_comment_path(c), method: :delete %></span>
         <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 show-left-column gray-right">
+        <img src="<%= c.user.image %>"><br>
+        <p>Total posts:<%= c.user.announcements.count + c.user.articles.count + c.user.surveys.count + c.user.comments.count + c.user.answers.count %></p>
+        <p>Member since: <%= c.user.created_at.strftime("%b %d, %Y") %></p>
       </div>
 
       <div class="col-xs-9 show-right-column">
-        <%= render html: c.content.html_safe %>
+        <div>
+          <%= render html: c.content.html_safe %><br>
+        </div>
       </div>
     </div>
   </div>
@@ -73,3 +100,13 @@
 <% if current_user %>
     <%= render 'comments/form' %>
 <% end %>
+
+<script>
+  setInterval(function(){
+    var postHeight = $('#post-right').css('height')
+    if (postHeight > $('#post-left').css('height')) {
+      $('#post-left').css('height', postHeight)
+    }
+
+  }, 1)
+</script>

@@ -17,27 +17,24 @@
     <div class="col-xs-7">
       <h4 class="gray"> Posted on <%= @announcement.created_at.strftime("%b %d, %H:%m") %></h4>
     </div>
+
+    <div class="col-xs-2 align-right">
+      <% if @announcement.user == current_user %>
+        <span><%= link_to 'Edit', edit_announcement_path(@announcement) %></span> |
+        <span><%= link_to 'Delete', destroy_announcement_path(@announcement), method: :delete %></span>
+      <% end %>
+    </div>
   </div>
 
   <div class="row">
     <div class="col-xs-3 show-left-column gray-right" id="post-left">
       <img src="<%= @announcement.user.image %>"><br>
-      <% if is_owner?(@announcement) %>
-        <div class="dropdown collapse navbar-collapse">
-          <a class="btn btn-default submit-btn dropdown" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More Action
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><%= link_to 'Edit', edit_announcement_path(@announcement) %></li>
-            <li><%= link_to 'Delete', destroy_announcement_path(@announcement), method: :delete %></li>
-          </ul>
-        </div>
-      <% end %>
+      <p>Total Posts: <%= @announcement.user.announcements.count + @announcement.user.articles.count + @announcement.user.surveys.count %></p>
+      <p>Member since: <%= @announcement.user.created_at.strftime("%b %d, %Y") %></p>
     </div>
 
     <div class="col-xs-9 show-right-column" id="post-right">
       <%= render html: @announcement.content.html_safe %>
-      <div class="bottom">AHHHH</div>
     </div>
   </div>
 
@@ -46,7 +43,10 @@
 
   setInterval(function(){
     var postHeight = $('#post-right').css('height')
-    $('#post-left').css('height', postHeight)
+    if (postHeight > $('#post-left').css('height')) {
+      $('#post-left').css('height', postHeight)
+    }
+
   }, 1)
 
 </script>
