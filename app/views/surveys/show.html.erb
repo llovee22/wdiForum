@@ -6,7 +6,20 @@
 
 <div class="container-border container-fluid">
   <div class="row show-header">
-    <h4> &nbsp; <%= @survey.title %></h4>
+    <div class="col-xs-10 xs-padding-adjust">
+      <h4> &nbsp; <%= @survey.title %></h4>
+    </div>
+
+    <div class="col-xs-2 align-right">
+      <% if current_user && current_user != @survey.user %>
+        <% if @survey.likes.find_by(user_id: current_user.id).nil? %>
+          <%= render 'likes/form'%>
+        <% else %>
+          <%= link_to 'Unlike', destroy_like_path(@survey.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 
   <div class="row orange-bottom">
@@ -32,14 +45,6 @@
       <img src="<%= @survey.user.image %>"><br>
         <p>Total posts:<%= @survey.user.announcements.count + @survey.user.articles.count + @survey.user.surveys.count + @survey.user.answers.count + @survey.user.comments.count %></p>
         <p>Member since: <%= @survey.user.created_at.strftime("%b %d, %Y") %></p>
-
-      <% if current_user && current_user != @survey.user %>
-        <% if @survey.likes.find_by(user_id: current_user.id).nil? %>
-          <%= render 'likes/form'%>
-        <% else %>
-          <%= link_to 'Unlike', destroy_like_path(@survey.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
-        <% end %>
-      <% end %>
     </div>
 
     <div class="col-xs-9 show-right-column" id="post-right">
