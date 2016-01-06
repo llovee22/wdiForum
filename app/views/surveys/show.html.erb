@@ -43,7 +43,7 @@
   <div class="row">
     <div class="col-xs-3 show-left-column gray-right" id="post-left">
       <img src="<%= @survey.user.image %>"><br>
-        <p>Total posts:<%= @survey.user.announcements.count + @survey.user.articles.count + @survey.user.surveys.count + @survey.user.answers.count + @survey.user.comments.count %></p>
+        <p>Total posts: <%= @survey.user.announcements.count + @survey.user.articles.count + @survey.user.surveys.count + @survey.user.answers.count + @survey.user.comments.count %></p>
         <p>Member since: <%= @survey.user.created_at.strftime("%b %d, %Y") %></p>
     </div>
 
