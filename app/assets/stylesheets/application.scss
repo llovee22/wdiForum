@@ -17,6 +17,11 @@
   height: 50px;
 }
 
+.show-left-column p {
+  font-size: 14px;
+  font-weight: bolder;
+}
+
 #forum-mainpage-header, .subforum-header, #inbox-header, .profile-header, .show-header {
   height: 30px;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Pm8iSSpLPACDIKbuFvim2ZfCAIO2bjaQq5t-Fbiic97dMgrC5w');
@@ -364,8 +369,12 @@ body {
 
 .show-left-column {
   background-color: #FFFAF4;
+  text-align: center;
 }
 
+.show-left-column h4 {
+  text-align: left;
+}
 .gray {
   color: gray;
 }
