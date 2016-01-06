@@ -115,13 +115,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-3 show-left-column gray-right">
+          <div class="col-xs-3 show-left-column gray-right reply-left">
             <img src="<%= a.user.image %>"><br>
             <p>Total posts:<%= a.user.announcements.count + a.user.articles.count + a.user.surveys.count + a.user.comments.count + a.user.answers.count %></p>
             <p>Member since: <%= a.user.created_at.strftime("%b %d, %Y") %></p>
           </div>
 
-          <div class="col-xs-9 show-right-column">
+          <div class="col-xs-9 show-right-column reply-right">
             <div>
               <%= render html: a.answer.html_safe %><br>
             </div>
@@ -133,6 +133,16 @@
 <% end %>
 
 <script>
+
+setInterval(function(){
+  var leftColumns = $('.reply-left')
+  var rightColumns = $('.reply-right')
+  for (var i = 0; i < leftColumns.length; i ++) {
+    if ($(leftColumns[i]).css('height') < $(rightColumns[i]).css('height')) {
+      $(leftColumns[i]).css('height', $(rightColumns[i]).css('height'))
+    }
+  }
+}, 1)
 
   setInterval(function(){
     var postHeight = $('#post-right').css('height')
