@@ -10,7 +10,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap-wysihtml5-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,7 +44,7 @@ group :development, :test do
   gem 'byebug'
 end
 
-group :development, :test do
+group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
