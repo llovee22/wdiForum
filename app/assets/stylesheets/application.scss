@@ -118,11 +118,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-.show-left-column img {
+.show-left-column img, .pair1 img {
   border: 5px solid #F7931D;
   width: 80%;
   margin-top: 10px;
 }
+
 
 .subforum-tag, .inbox-tag {
   background: linear-gradient(#EAF3FB, #FFFFFF);
@@ -369,6 +370,10 @@ body {
 
 .show-left-column {
   background-color: #FFFAF4;
+  text-align: center;
+}
+
+.center {
   text-align: center;
 }
 
