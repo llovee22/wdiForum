@@ -205,10 +205,6 @@ body {
   margin-top: 15px;
 }
 
-.index-container {
-  // border-radius: 5px;
-  padding-bottom: 15px;
-}
 
 .breadcrumb a {
   color: #086B9C;
@@ -222,26 +218,18 @@ body {
     background-color:black;
 }
 
-.index-last-comment, .index-comment-view {
-  text-align: right;
-}
 
-.previous_label {
-  background-color: gray;
-}
-
-
-.post-index-title {
+.black-bold {
   font-weight: bolder;
   color: black;
 }
 
-.post-index-owner {
+.gray-bold {
   font-weight: bold;
   color: #5A5A5A;
 }
 
-.post-index-date, .message-date {
+.gray-normal {
   color: #737373;
 }
 
@@ -268,19 +256,6 @@ body {
 }
 
 
-.post-show-owner-section {
-  text-align: center;
-  background-color: #E8F3FD;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.user-show-info-section {
-  text-align: center;
-  background-color: #E8F3FD;
-  padding: 10px;
-
-}
 
 .send-btn, .message-btn, .new-post-btn {
   background: linear-gradient(#FFF8DF, white);
@@ -291,9 +266,6 @@ body {
   color: #009900;
 }
 
-.inbox-last-update, .inbox-last-message {
-  text-align: right;
-}
 
 .submit-btn {
   border-radius: 5px;
@@ -309,13 +281,6 @@ body {
   padding: 15px 5px 15px 15px;
 }
 
-.show-post-image {
-  margin-top: 10px;
-}
-
-.forum-empty, .inbox-empty {
-  text-align: center
-}
 
 
 
@@ -330,7 +295,7 @@ body {
 
 
 
-.like-count {
+.green-italic {
   font-style: italic;
   color: green;
 }
