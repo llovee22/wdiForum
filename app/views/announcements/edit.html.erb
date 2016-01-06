@@ -1,0 +1,44 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="ClassAnnouncement">Class Announcement</a></li>
+  <li><a href="/announcements/<%= @announcement.id %>"><%= @announcement.title %></a></li>
+  <li class="current-page">Edit Post</li>
+</ol>
+
+<div class="container container-border">
+  <%= form_for(@announcement, url: update_announcement_path(@announcement), method: :patch, :html => {class:"form-horizontal"}) do |f| %>
+    <fieldset>
+      <div class="form-group post-header">
+        <h3 class="col-md-7 col-md-offset-5">
+          Edit Post
+        </h3>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :topic, class: "control-label col-xs-3 formLabel" %>
+        <div class="col-xs-6">
+          <%= f.text_field :title, placeholder: "Minimum length 5 | Maximum length 100", class: "form-control"%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :body, class: "control-label col-xs-3 formLabel"%>
+        <div class="col-xs-6">
+          <%= f.text_area :content, placeholder:"Minimum length 10",class: "form-control wysihtml5", as: :wysihtml5%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-5 col-xs-offset-3">
+          <%= f.submit 'Post', class: "btn btn-default submit-btn"%>
+          <a href="/ClassAnnouncement" class="btn btn-default submit-btn">Cancel</a>
+        </div>
+      </div>
+
+    </fieldset>
+  <% end %>
+</div>
+
+<%= javascript_tag do %>
+    textOption();
+<% end %>

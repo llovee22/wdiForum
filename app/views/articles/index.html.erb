@@ -1,0 +1,111 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="current-page">General Discussion</li>
+</ol>
+
+<div class="container container-border subforum-rules">
+  <div class="rules-header row horizontal-padding-15">
+    <h4>Rules and Guidelines</h4>
+  </div>
+  <div class="row horizontal-padding-15">
+    <h5>The following rules and guidelines only apply to this subforum</h5>
+    <ul>
+      <li>Post titles should at least be 5 characters long but no longer than 100 characters</li>
+      <li>Post bodies must be at least 10 characters long</li>
+      <li>Replies must at least be 3 characters long</li>
+      <li>Duplicate posts (discussions or messages) are not allowed; duplicate posts will be removed by admin</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container container-border min-height-200">
+  <div class="row subforum-header">
+    <h4> &nbsp;&nbsp; :: General Dicussion :: </h4>
+  </div>
+
+  <div class="row subforum-tag orange-bottom white-top">
+    <div class="col-xs-5"><h4>Topic</h4></div>
+    <div class="col-xs-3"></div>
+    <div class="col-xs-2 align-right"><h4>Comments</h4></div>
+    <div class="col-xs-2 align-right"><h4>Last Comment</h4></div>
+  </div>
+
+  <% if !@articles.empty? %>
+    <% @articles.order('created_at DESC').each do |a| %>
+      <div class="row orange-bottom discussion-list">
+        <div class="col-xs-5">
+          <div>
+            <a class="black-bold" href="/articles/<%= a.id %>"><%= a.title %></a>
+          </div>
+
+          <div>
+            <a class="gray-bold" href="/users/<%=a.user.id%>">
+              <%= a.user.username %>
+            </a>,
+            <span class="gray-normal">
+              <%= a.created_at.strftime("%b %d, %Y") %>
+            </span>
+            <span class="green-italic">
+              (<%= a.likes.count %> likes)
+            </span>
+          </div>
+        </div>
+
+        <div class="col-xs-3"></div>
+
+        <div class="col-xs-2 align-right">
+          <div>
+            <span class="black-bold">Comments:</span> <%= a.comments.count%>
+          </div>
+
+          <div>
+            <span class="black-bold">Views: </span><%= a.view %>
+          </div>
+        </div>
+
+        <div class="col-xs-2">
+          <% if a.comments.empty? == false %>
+            <div class="black-bold align-right">
+              <%= a.comments.last.created_at.strftime("%b %d, %H:%m") %>
+            </div>
+
+            <div class="align-right">
+              by <a class="gray-bold" href="/users/<%=a.comments.last.user.id%>"><%= a.comments.last.user.username%></a>
+            </div>
+          <% else %>
+            <div class="index-last-comment">
+              <div class="index-last-comment bold-text">None</div>
+
+              <div class="index-last-comment bold-text last-comment-name">N/a
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="row">
+      <div class="col-xs-4"></div>
+
+      <div class="col-xs-4">
+        <em><span class="forum-empty">The forum is currently empty</span></em>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="container subforum-footer">
+  <div class="row">
+    <div class="col-xs-2">
+      <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :class => "pagination-sm", :previous_label => "《", :next_label => "》"%>
+    </div>
+
+    <div class="col-xs-9"></div>
+
+    <div class="col-xs-1">
+      <% if current_user %>
+          <a href="/articles/new" class="btn btn-default new-post-btn">New Post</a>
+      <% end %>
+    </div>
+  </div>
+</div>

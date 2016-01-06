@@ -1,0 +1,388 @@
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
+
+
+#header {
+  background-color: #FF7500;
+  margin-bottom: 0px;
+  display: block;
+}
+
+#header a {
+  color: white;
+  font-weight: bolder;
+}
+#homeLogo{
+  height: 50px;
+}
+
+.show-left-column p {
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+#forum-mainpage-header, .subforum-header, #inbox-header, .profile-header, .show-header {
+  height: 30px;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Pm8iSSpLPACDIKbuFvim2ZfCAIO2bjaQq5t-Fbiic97dMgrC5w');
+  opacity: 0.7;
+}
+
+
+.subforum-footer, .top-margin-15 {
+  margin-top: 15px;
+}
+.chat-header h4 {
+  color: black;
+}
+
+.feature-subheader {
+  background-color: #FFF3E7;
+}
+
+.feature-subheader h4 {
+  color: #666666;
+}
+
+.align-right {
+    text-align: right;
+}
+
+h4 {
+  margin: 0px;
+  padding-top: 5px;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+.subforum-list a {
+  color: black;
+  font-weight: bolder;
+}
+
+.post-header {
+  background: linear-gradient(#FFB343, #FFE9C7);
+  border-color: #CAD9EA;
+  color: black;
+  font-weight: bolder;
+  // border-bottom: 1px solid #CAD9EA;
+  padding: 5px 0px 5px 0px;
+  height: auto;
+}
+
+.form-header, .chat-header {
+  //border-radius: 5px 5px 0px 0px;
+  border-color: #CAD9EA;
+  color: black;
+  font-weight: bolder;
+  // border-bottom: 1px solid #CAD9EA;
+  padding: 5px 0px 5px 0px;
+  height: auto;
+  background: linear-gradient(#FFB343, #FFF8EC);
+}
+
+
+.subforum-list, .chat-container .row {
+  background-color: #F8F8F8;
+  border-bottom: 1px solid white;
+  padding: 2px;
+}
+
+.white-top {
+  border-top: 2px solid white;
+
+}
+.orange-bottom {
+  border-bottom: 1px solid #F9D7AC;
+}
+
+.gray-right {
+  border-right: 1px solid #EEE;
+}
+
+.gray-bottom {
+  border-bottom: 1px solid #F9D7AC;
+  padding: 2px;
+}
+
+.subforum-list:hover, .discussion-list:hover, .message:hover, .conversation:hover {
+  background-color: #FFFAF6;
+}
+
+.subforum-logo {
+  width: 100%;
+  border: 5px solid #F7931D;
+  border-radius: 10px;
+}
+
+.show-left-column img {
+  border: 5px solid #F7931D;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.subforum-tag, .inbox-tag {
+  background: linear-gradient(#EAF3FB, #FFFFFF);
+  font-weight: bolder;
+}
+
+.subforum-tag h4, .inbox-tag h4 {
+  color: #666;
+}
+
+.rules-header {
+  background: linear-gradient(#FFB343, #FFF8EC);
+}
+
+.rules-header h4{
+  color: black;
+  font-weight: bolder;
+}
+
+.subforum-rules {
+  margin-bottom: 20px;
+}
+
+.gray-background {
+ background-color: #F8F8F8;
+}
+
+
+
+
+
+body {
+  padding-top: 50px;
+  background-color: #F8F8F8;
+  margin-bottom: 50px;
+}
+
+
+.jumbotron {
+  background: rgba(255,255,255,0);
+  // border-radius: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 20px 20px 0px 20px;
+  // background-image: url('http://stage48.net/forum/styles/default/xenforo/new/bg.jpg')
+}
+
+.user-picture {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  color: gray;
+  background-color: #F8F8F8;
+  font-weight: bolder;
+  border-radius: 0px;
+}
+
+.form-header span {
+  font-size: 20px;
+}
+
+.form-group-margin .form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.no-vert-margin {
+  margin: 0px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.chat-container {
+  overflow: auto;
+  height: 400px;
+  overflow-x: hidden;
+  padding: 10px 10px 10px 10px;
+}
+
+.message-input-box {
+  margin-top: 15px;
+}
+
+
+.breadcrumb a {
+  color: #086B9C;
+}
+
+.current-page{
+  font-style: italic;
+}
+
+.pagination-sm li:second-child span {
+    background-color:black;
+}
+
+
+.black-bold {
+  font-weight: bolder;
+  color: black;
+}
+
+.gray-bold {
+  font-weight: bold;
+  color: #5A5A5A;
+}
+
+.gray-normal {
+  color: #737373;
+}
+
+
+.last-comment-date {
+  font-weight: bolder;
+  color: black;
+}
+
+.last-comment-name {
+  color: #5A5A5A;
+}
+
+.last-comment-name a{
+  color: #737373;
+}
+
+.bold-text {
+  font-weight: bolder;
+}
+
+.index-comment-view span{
+  font-weight: bolder;
+}
+
+
+
+.send-btn, .message-btn, .new-post-btn {
+  background: linear-gradient(#FFF8DF, white);
+}
+
+
+.last-message-received {
+  color: #009900;
+}
+
+
+.submit-btn {
+  border-radius: 5px;
+  background: linear-gradient(#FFF8DF, white);
+}
+
+.pagination {
+  margin: 0px;
+}
+
+
+.show-right-column {
+  padding: 15px 5px 15px 15px;
+}
+
+
+.like-btn {
+  background: linear-gradient(#FFF8DF, white);
+  max-width: 90%;
+  height: 30px;
+  padding: 2px;
+  margin: 0;
+}
+
+.show-right-column img {
+  max-width: 80%;
+}
+
+
+.green-italic {
+  font-style: italic;
+  color: green;
+}
+
+
+.container-border {
+  border: 1px solid #999;
+}
+
+.no-top-border {
+  border: 1px solid #999;
+  border-top: 0px;
+}
+
+
+#xs-padding-adjust {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.xs-padding-adjust {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.pair1 {
+  height: 400px;
+}
+
+.pair2 {
+  height: 150px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.center-middle {
+  text-align: center;
+  font-style: italic;
+}
+
+.horizontal-padding-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.min-height-200 {
+  min-height: 200px;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+  background: #FFDDA9;
+  color: black;
+  font-weight: bolder;
+  border-color: #DDDDDD;
+}
+.pagination > li > a, .pagination > li > span, .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus  {
+  background: linear-gradient(#FFF8E1, #FFFFFF);
+  color: gray;
+}
+
+#user-dropdown a {
+    color: #FF7500;
+    font-weight: bolder;
+}
+
+.show-left-column {
+  background-color: #FFFAF4;
+  text-align: center;
+}
+
+.show-left-column h4 {
+  text-align: left;
+}
+.gray {
+  color: gray;
+}
+
+.show-left-column p {
+  margin-bottom: 0px;
+}
+
+#post-right {
+  min-height: 350px;
+}

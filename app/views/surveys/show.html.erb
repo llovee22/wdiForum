@@ -1,0 +1,155 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/FeedbackInbox">Feedback Inbox</a></li>
+  <li class="current-page"><%= @survey.title %></li>
+</ol>
+
+<div class="container-border container-fluid">
+  <div class="row show-header">
+    <div class="col-xs-10 xs-padding-adjust">
+      <h4> &nbsp; <%= @survey.title %></h4>
+    </div>
+
+    <div class="col-xs-2 align-right">
+      <% if current_user && current_user != @survey.user %>
+        <% if @survey.likes.find_by(user_id: current_user.id).nil? %>
+          <%= render 'likes/form'%>
+        <% else %>
+          <%= link_to 'Unlike', destroy_like_path(@survey.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn like-btn btn-default" %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="row orange-bottom">
+    <div class="col-xs-3 show-left-column gray-right">
+      <h4><%= link_to "#{@survey.user.username}", user_information_path(@survey.user) %></h4>
+    </div>
+
+    <div class="col-xs-6">
+      <h4 class="gray"> Posted on <%= @survey.created_at.strftime("%b %d, %H:%m") %></h4>
+    </div>
+
+    <div class="col-xs-3 align-right">
+      <% if @survey.user == current_user %>
+        <span><%= link_to 'Edit', edit_survey_path(@survey) %></span> |
+        <span><%= link_to 'Delete', destroy_survey_path(@survey), method: :delete %></span>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-3 show-left-column gray-right" id="post-left">
+      <img src="<%= @survey.user.image %>"><br>
+        <p>Total posts:<%= @survey.user.announcements.count + @survey.user.articles.count + @survey.user.surveys.count + @survey.user.answers.count + @survey.user.comments.count %></p>
+        <p>Member since: <%= @survey.user.created_at.strftime("%b %d, %Y") %></p>
+    </div>
+
+    <div class="col-xs-9 show-right-column" id="post-right">
+      <div>
+        <%= render html: @survey.question.html_safe %><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- if the current user is the user who created the survey -->
+<% if current_user %>
+  <% if is_owner?(@survey) %>
+    <% @answers.each do |a| %>
+    <div class="container-fluid container-border top-margin-15">
+      <div class="row orange-bottom">
+        <div class="col-xs-3 show-left-column gray-right">
+          <h4><%= link_to "#{a.user.username}", user_information_path(a.user) %></h4>
+        </div>
+
+        <div class="col-xs-6">
+          <h4 class="gray"> Posted on <%= a.created_at.strftime("%b %d, %H:%m") %></h4>
+        </div>
+
+        <div class="col-xs-3 align-right">
+          <% if a.user == current_user %>
+            <span><%= link_to 'Edit', edit_answer_path(a) %></span> |
+            <span><%= link_to 'Delete', destroy_answer_path(a), method: :delete %></span>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 show-left-column gray-right">
+          <img src="<%= a.user.image %>"><br>
+          <p>Total posts:<%= a.user.announcements.count + a.user.articles.count + a.user.surveys.count + a.user.answers.count + a.user.comments.count %></p>
+          <p>Member since: <%= a.user.created_at.strftime("%b %d, %Y") %></p>
+        </div>
+
+        <div class="col-xs-9 show-right-column">
+          <div>
+            <%= render html: a.answer.html_safe %><br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  <!-- if the current user never answered the survey before -->
+  <% elsif @my_answers.empty? %>
+    <%= render 'answers/form' %>
+  <% else %>
+    <% @my_answers.each do |a| %>
+      <div class="container-fluid container-border top-margin-15">
+        <div class="row orange-bottom">
+          <div class="col-xs-3 show-left-column gray-right">
+            <h4><%= link_to "#{a.user.username}", user_information_path(a.user) %></h4>
+          </div>
+
+          <div class="col-xs-6">
+            <h4 class="gray"> Posted on <%= a.created_at.strftime("%b %d, %H:%m") %></h4>
+          </div>
+
+          <div class="col-xs-3 align-right">
+            <% if a.user == current_user %>
+              <span><%= link_to 'Edit', edit_answer_path(a) %></span> |
+              <span><%= link_to 'Delete', destroy_answer_path(a), method: :delete %></span>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3 show-left-column gray-right reply-left">
+            <img src="<%= a.user.image %>"><br>
+            <p>Total posts:<%= a.user.announcements.count + a.user.articles.count + a.user.surveys.count + a.user.comments.count + a.user.answers.count %></p>
+            <p>Member since: <%= a.user.created_at.strftime("%b %d, %Y") %></p>
+          </div>
+
+          <div class="col-xs-9 show-right-column reply-right">
+            <div>
+              <%= render html: a.answer.html_safe %><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<script>
+
+setInterval(function(){
+  var leftColumns = $('.reply-left')
+  var rightColumns = $('.reply-right')
+  for (var i = 0; i < leftColumns.length; i ++) {
+    if ($(leftColumns[i]).css('height') < $(rightColumns[i]).css('height')) {
+      $(leftColumns[i]).css('height', $(rightColumns[i]).css('height'))
+    }
+  }
+}, 1)
+
+  setInterval(function(){
+    var postHeight = $('#post-right').css('height')
+    if (postHeight > $('#post-left').css('height')) {
+      $('#post-left').css('height', postHeight)
+    }
+
+  }, 1)
+
+</script>
