@@ -62,7 +62,7 @@
 
       <div class="pair2">
         <% if @surveys.empty? %>
-          <%= @user.username %> has not yet posted in Feedback Inbox
+          <div class="center-middle"><%= @user.username %> has not yet posted in Feedback Inbox</div>
         <% else %>
           <% @surveys.each do |s| %>
 
