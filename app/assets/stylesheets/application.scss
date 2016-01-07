@@ -152,13 +152,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
+#header {
+  overflow-y: hidden;
+}
 
 
 body {
   padding-top: 50px;
   background-color: #F8F8F8;
   margin-bottom: 50px;
+  overflow-y: hidden;
 }
 
 
