@@ -117,7 +117,7 @@
         <div class="row">
           <div class="col-xs-3 show-left-column gray-right reply-left">
             <img src="<%= a.user.image %>"><br>
-            <p>Total posts:<%= a.user.announcements.count + a.user.articles.count + a.user.surveys.count + a.user.comments.count + a.user.answers.count %></p>
+            <p>Total posts: <%= a.user.announcements.count + a.user.articles.count + a.user.surveys.count + a.user.comments.count + a.user.answers.count %></p>
             <p>Member since: <%= a.user.created_at.strftime("%b %d, %Y") %></p>
           </div>
 
