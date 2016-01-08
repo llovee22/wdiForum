@@ -19,7 +19,7 @@
       <strong><h4>Last Message</h4></strong>
     </div>
 
-    <div class="col-xs-4 inbox-last-update"><strong><h4>Last Send/Received On</h4></strong></div>
+    <div class="col-xs-4 inbox-last-update align-right"><strong><h4>Last Send/Received On</h4></strong></div>
   </div>
 
   <% if !@conversations.empty? %>
@@ -37,7 +37,7 @@
           <span class="last-message-received"><%= c.messages.last.content %></span>
         </div>
 
-        <div class="col-xs-4 inbox-last-update">
+        <div class="col-xs-4 inbox-last-update align-right">
           <h5><%= c.messages.last.created_at.strftime("%B %d -  %H:%M")%></h5>
         </div>
       </div>
