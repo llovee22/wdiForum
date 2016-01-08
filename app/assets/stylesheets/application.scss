@@ -118,11 +118,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-.show-left-column img {
+.show-left-column img, .pair1 img {
   border: 5px solid #F7931D;
   width: 80%;
   margin-top: 10px;
 }
+
 
 .subforum-tag, .inbox-tag {
   background: linear-gradient(#EAF3FB, #FFFFFF);
@@ -158,6 +159,7 @@ body {
   padding-top: 50px;
   background-color: #F8F8F8;
   margin-bottom: 50px;
+  min-width: 1200px;
 }
 
 
@@ -170,9 +172,11 @@ body {
   // background-image: url('http://stage48.net/forum/styles/default/xenforo/new/bg.jpg')
 }
 
+.reply-right {
+  min-height: 300px;
+}
+
 .user-picture {
-  height: 200px;
-  width: 200px;
   margin-bottom: 10px;
 }
 
@@ -337,7 +341,7 @@ body {
   overflow-x: hidden;
 }
 
-.center-middle {
+.center-italic {
   text-align: center;
   font-style: italic;
 }
@@ -372,6 +376,10 @@ body {
   text-align: center;
 }
 
+.center {
+  text-align: center;
+}
+
 .show-left-column h4 {
   text-align: left;
 }
@@ -385,8 +393,4 @@ body {
 
 #post-right {
   min-height: 350px;
-}
-
-.reply-right {
-  min-height: 300px;
 }
