@@ -4,11 +4,14 @@
 </ol>
 
 
-
-<div class="container container-border min-height-200">
+<div class="container">
   <div class="row">
     <%= will_paginate @conversations, renderer: BootstrapPagination::Rails, :class => "pagination pagination-sm", :previous_label => "《", :next_label => "》"%>
   </div>
+</div>
+
+<div class="container container-border min-height-200">
+
   <div class="row container-border" id="inbox-header">
     <h4> &nbsp; :: Inbox :: </h4>
   </div>
