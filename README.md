@@ -14,8 +14,10 @@ Ruby on Rails | Bootstrap | jQuery | HTML5 | CSS | PostgreSQL | Nerian
 
 ### Homepage
 Guests will have the option to login/signup or browse the subfroums
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/homepageGuest.png)
 
 Users will have the option to check the forum-chatroom, account setting, user-profile inbox, browse the subforums and to logout.
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/homepageUser.png)
 
 ### Subforum
 Each of the user type (guest/student/instructor) will have different authorities in the subforums:
@@ -23,12 +25,17 @@ Each of the user type (guest/student/instructor) will have different authorities
 
 ### User Profile
 Each registered user will have a user profile which shows the articles and surveys that he/she has created. Users will also have the option to message another user from this page from clicking the "message" button.
-
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/userProfile.png)
 
 ### Features
 #### Forum Chatroom
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/ForumChatroom.png)
 
 #### Message Center/Inbox
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/Inbox.png)
+
+#### Like/Unlike
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/like.png)
 
 
 <!--
