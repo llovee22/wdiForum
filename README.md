@@ -3,6 +3,9 @@ A tool designed for WDI students to (1) ask questions, (2) ask and give feedback
 
 Users can sign up for a free account as either a student or an instructor to create and reply to posts.
 
+### Deploy on Heroku
+[http://wdiforum.herokuapp.com/](wdiForum | Web Development Immersive Forum)
+
 ### Technologies
 Ruby on Rails | Bootstrap | jQuery | HTML5 | CSS | PostgreSQL | Nerian
 
