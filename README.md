@@ -11,10 +11,10 @@ Ruby on Rails | Bootstrap | jQuery | HTML5 | CSS | PostgreSQL | Nerian
 
 
 # ERD | Entity-Relationship Diagram
-<!-- ERD.png -->
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/Layout.png)
 
 # Wireframe
-<!-- wireframe.png -->
+![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/Layout.png)
 
 # User Stories
 
