@@ -55,8 +55,12 @@ As a user, I want to be able to edit or delete posts/replies I've created on the
 As a user, I want to be able to edit my profile information.
 
 ### Future Implementation
-1) Provide the option for users to sort the subforum posts by (1) date of most recent reply or (2) date created.
+1) Provide the option for users to sort the subforum posts by (1) date of most recent reply or (2) date created
+
 2) Implement a tool for users to upload profile pictures
+
 3) Convert forum chatroom into real-time streaming
+
 4) Implement points system for users who create posts or reply to posts
+
 5) Implement rank system  
