@@ -37,11 +37,26 @@ Each registered user will have a user profile which shows the articles and surve
 #### Like/Unlike
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiForum/master/app/assets/images/like.png)
 
-
-<!--
-
-
 # User Stories
+As a user, I want to have easy access to my posts or posts of a specific user.
 
+As a user, I want to have the option to style my posts by inserting images, lists or letters of different sizes.
 
-### Future Implementation -->
+As a user, I want to like or unlike a post.
+
+As a user, I want to post surveys and keep the replies private so no one other than myself will have access to it.
+
+As a user, I want to be able to have private conversation with another user.
+
+As a user, I want to be able to reply to posts.
+
+As a user, I want to be able to edit or delete posts/replies I've created on the forum.
+
+As a user, I want to be able to edit my profile information.
+
+### Future Implementation
+1) Provide the option for users to sort the subforum posts by (1) date of most recent reply or (2) date created.
+2) Implement a tool for users to upload profile pictures
+3) Convert forum chatroom into real-time streaming
+4) Implement points system for users who create posts or reply to posts
+5) Implement rank system  
